@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectModal from '../components/ProjectModal.astro';
+import { projects } from '../data/projects.js'; // Importamos tu "BD"
+---
+
+<Layout title="Angel | Fullstack Developer">
+	<main class="max-w-6xl w-full mx-auto p-4 md:p-8">
+
+        <header class="mb-12 mt-8">
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tighter">
+                Hola, soy <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-600">Angel</span>.
+            </h1>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 auto-rows-[300px] gap-4">
+
+            {projects.map((project) => (
+                <div class="col-span-1 md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-3xl bg-neutral-900 border border-neutral-800 p-6 hover:border-neutral-600 transition-colors flex flex-col justify-between">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/30 z-10"></div>
+                    <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-700" style={`background-image: url('${project.image}')`}></div>
+
+                    <div class="relative z-20 h-full flex flex-col justify-between">
+                        <div class="flex justify-between items-start">
+                            <div class="flex gap-2">
+                                {project.tags.slice(0, 2).map(tag => (
+                                    <span class="bg-white/10 text-xs font-bold px-3 py-1 rounded-full border border-white/10 backdrop-blur-sm">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                            {project.isPrivate && (
+                                <div class="bg-black/60 p-2 rounded-full backdrop-blur-md border border-white/10" title="Proyecto Privado">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                </div>
+                            )}
+                        </div>
+
+                        <div>
+                            <h3 class="text-emerald-400 font-bold tracking-widest uppercase text-xs mb-1">
+                                {project.company}
+                            </h3>
+
+                            <h2 class="text-2xl font-bold text-white mb-2">{project.title}</h2>
+
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-2">
+                                {project.shortDescription}
+                            </p>
+
+                            <div class="bg-white/5 border border-white/10 rounded-xl p-3 mb-4 backdrop-blur-sm">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-2xl font-bold text-emerald-400">{project.stats.value}</span>
+                                    <p class="text-xs text-gray-400 leading-tight">
+                                        {project.stats.label}<br>
+                                        <span class="text-white">{project.stats.subtext}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button
+                            class="w-full py-2 bg-white text-black text-sm font-bold rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2"
+                            onclick={`window.openProjectModal(${JSON.stringify(project)})`}
+                        >
+                            Ver Arquitectura
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+            ))}
+
+            </div>
+	</main>
+
+    <ProjectModal />
+
+</Layout>
