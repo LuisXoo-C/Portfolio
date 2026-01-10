@@ -1,18 +1,18 @@
 export const experiences = [
   {
-    period: '2023 - Presente',
-    position: 'Freelance Developer & Data Engineer',
-    company: 'Independiente',
-    description: 'Desarrollo de soluciones end-to-end con enfoque en ingeniería de datos e IoT. Implementación de pipelines de datos en tiempo real con RedPanda/Kafka, almacenamiento distribuido con MinIO y visualización con Metabase.',
-    technologies: ['Python', 'C++', 'RedPanda', 'PostgreSQL', 'MinIO', 'Metabase', 'ESP32']
+    period: '2024 - 2025',
+    position: 'Desarrollador IoT Principal',
+    company: 'Logix-UET / Logix GPS',
+    description: 'Asumí la responsabilidad total de los desarrollos del núcleo de negocio de la empresa. Desarrollé y migré todos los procesos empíricos hacia estándares de ingeniería de software profesionalizando el ecosistema IoT desde la arquitectura hasta el despliegue final.',
+    achievements: [
+      'Estandaricé el SDLC migrando flujos empíricos a estándares de ingeniería de software.',
+      'Códigos optimizados para no estresar de más los microcontroladores.',
+      'Eliminé años de deuda técnica mediante la refactorización de código legado y la implementación de patrones de diseño.',
+      'Implementé de control de versiones y documentación técnica (macro/micro).',
+      'Diseñé arquitecturas de datos robustas que permitieron la expansión y el crecimiento del parque de dispositivos IoT activos de la organización',
+      'Logré un incrementando en la velocidad de entrega y fiabilidad de los proyectos.'
+    ],
+    technologies: ['C++', 'ESP32', 'Teltonika IoT', 'Git', 'Clean Architecture', 'SDLC', 'SQL']
   },
-  {
-    period: '2021 - 2023',
-    position: 'Lead Developer',
-    company: 'Seguros Crefisa',
-    description: 'Lideré la transformación digital completa de la aseguradora. Diseñé e implementé un sistema de gestión crediticia desde cero que incrementó la capacidad operativa en 400% y redujo tiempos de proceso de 7 horas a 45 minutos.',
-    technologies: ['PHP', 'Laravel', 'Node.js', 'MySQL', 'REST API']
-  },
-  // Agrega más experiencias aquí
 ];
 
