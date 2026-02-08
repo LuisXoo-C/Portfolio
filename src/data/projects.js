@@ -116,8 +116,8 @@ export const projects = [
         <div>
             <h4 class="text-emerald-400 font-bold text-lg mb-2">Logros</h4>
             <p class="text-gray-300">• Comunicación TCP Y UDP a dispositivos enlazados.</p>
-            <p class="text-gray-300">• Logré comprender parte de la comunicación de redes.</p>
-            <p class="text-gray-300">• Logré hacer que visualice la comunicación de muchos puertos a la vez.</p>
+            <p class="text-gray-300">• Logré comprender de la comunicación de datos redes.</p>
+            <p class="text-gray-300">• Hacer que visualice la comunicación de muchos puertos a la vez.</p>
             <p class="text-gray-300">• Automatización de comandos según sea el dato que reciba.</p>
         </div>
       </div>
