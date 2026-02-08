@@ -58,7 +58,7 @@ export const projects = [
     id: 'iot-system',
     title: 'Sistema IoT + Data Engineering',
     shortDescription: 'Monitoreo de sensores en tiempo real, abarca todo el ciclo de vida de los datos. (Desde la Generación hasta la Visualización de los datos.)',
-    tags: ['Python', 'Docker','C++' , 'FastAPI', 'RedPanda', 'MinIO', 'Postgres DB', 'Metabase'],
+    tags: ['Python', 'C++', 'Docker', 'FastAPI', 'RedPanda', 'MinIO', 'Postgres DB', 'Metabase'],
     image: '/resources/Proyecto-sensores.png',
     isPrivate: false,
     stats: {
@@ -79,7 +79,7 @@ export const projects = [
         <div>
             <h4 class="text-emerald-400 font-bold text-lg mb-2">Logros</h4>
             <p class="text-gray-300">• Obtuve un acercamiento más allá de lo macro y me enfrenté a problemas de análisis.</p>
-            <p class="text-gray-300">• Logré hacer y comprender el flujo de un sistema de datos y como está comprendido cada elemento para hacer que los datos raw al concluir tengan sentido para el usuario final.</p>
+            <p class="text-gray-300">• Logré hacer y comprender el ciclo de vida completo de un sistema de datos y como está comprendido cada elemento para hacer que los datos raw al concluir tengan sentido para el usuario final.</p>
             <p class="text-gray-300">• Desacoplamiento del sistema completo, para que cuando se rompa algo no afecte a las demás partes del sistema.</p>
             <p class="text-gray-300">• Logré hacer un sistema de datos estandarizado y mantenible.</p>
         </div>
