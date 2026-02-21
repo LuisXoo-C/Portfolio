@@ -12,7 +12,7 @@ export const experiences = [
       'Diseñé arquitecturas de datos robustas que permitieron la expansión y el crecimiento del parque de dispositivos IoT activos de la organización',
       'Logré un incrementando en la velocidad de entrega y fiabilidad de los proyectos.'
     ],
-    technologies: ['C++', 'ESP32', 'Teltonika IoT', 'Git', 'Clean Architecture', 'SDLC', 'SQL']
+    technologies: ['C++', 'ESP32', 'Teltonika IoT', 'Git', 'Clean Architecture', 'SDLC', 'DBA - SQL']
   },
 ];
 

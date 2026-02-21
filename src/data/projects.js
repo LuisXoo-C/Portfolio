@@ -58,7 +58,7 @@ export const projects = [
     id: 'iot-system',
     title: 'Sistema IoT + Data Engineering',
     shortDescription: 'Monitoreo de sensores en tiempo real, abarca todo el ciclo de vida de los datos. (Desde la Generación hasta la Visualización de los datos.)',
-    tags: ['Python', 'C++', 'Docker', 'FastAPI', 'RedPanda', 'MinIO', 'Postgres DB', 'Metabase'],
+    tags: ['Python', 'ETL', 'C++', 'Docker', 'FastAPI', 'RedPanda', 'MinIO', 'Postgres DB', 'Metabase'],
     image: '/resources/Proyecto-sensores.png',
     isPrivate: false,
     stats: {
@@ -69,28 +69,20 @@ export const projects = [
     detailsHTML: `
       <div class="space-y-6">
         <div>
-            <h4 class="text-emerald-400 font-bold text-lg mb-2">¿Cómo surgió la idea?</h4>
-            <p class="text-gray-300">.</p>
-        </div>
-        <div>
-            <h4 class="text-emerald-400 font-bold text-lg mb-2">El Desafío</h4>
-            <p class="text-gray-300">Comprender en su mayoría el concepto de lo que hace y por qué un Ingeniero de Datos.</p>
-        </div>
-        <div>
             <h4 class="text-emerald-400 font-bold text-lg mb-2">Logros</h4>
-            <p class="text-gray-300">• Obtuve un acercamiento más allá de lo macro y me enfrenté a problemas de análisis.</p>
+            <p class="text-gray-300">• Obtuve un acercamiento más allá de un simple ETL, hice un proyecto completo y recorriendo cada etapa del ciclo de datos, superando los problemas de análisis.</p>
             <p class="text-gray-300">• Logré hacer y comprender el ciclo de vida completo de un sistema de datos y como está comprendido cada elemento para hacer que los datos raw al concluir tengan sentido para el usuario final.</p>
             <p class="text-gray-300">• Desacoplamiento del sistema completo, para que cuando se rompa algo no afecte a las demás partes del sistema.</p>
             <p class="text-gray-300">• Logré hacer un sistema de datos estandarizado y mantenible.</p>
         </div>
+        <!--
         <div>
             <h4 class="text-emerald-400 font-bold text-lg mb-2">Arquitectura</h4>
             <ul class="list-disc list-inside text-gray-300 space-y-1">
-                <li><strong>:</strong> .</li>
-                <li><strong>:</strong> .</li>
-                <li><strong>:</strong> .</li>
+                <li><strong>AUN NO TENGO TIEMPO PARA RELLENAR esta info</strong> .</li>
             </ul>
         </div>
+        -->
       </div>
     `
   },
