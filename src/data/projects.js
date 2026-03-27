@@ -9,7 +9,7 @@ export const projects = [
     image: '/resources/Logo Crefisa.jpg',
     isPrivate: true, // Para mostrar el candado
     stats: {
-      value: 'Reducción de tiempos por cliente: 6-7h ➝ 1h',
+      value: 'Reducción de tiempos por cliente.',
       label: 'Incremento en capacidad operativa',
       subtext: '6-7h ➝ 1h'
     },
@@ -33,10 +33,11 @@ export const projects = [
         </div>
         <div>
             <h4 class="text-emerald-400 font-bold text-lg mb-2">Logros</h4>
-            <p class="text-gray-300">• Incremento del 400% en capacidad operativa: Transformé un proceso manual en un ecosistema digital automatizado, permitiendo a la aseguradora procesar 4 veces más solicitudes con el mismo personal.</p>
-            <p class="text-gray-300">• Reducción de latencia (90%): Optimicé el ciclo de vida del crédito, reduciendo el tiempo de 7 horas a 45 minutos por expediente mediante procesamiento asíncrono.</p>
+            <p class="text-gray-300">• Incremento en capacidad operativa: Pasando de 6h-7h por cliente pasando a 1h.</p>
+            <p class="text-gray-300">• Optimicé el ciclo de vida del crédito, reduciendo tiempos por expediente mediante procesamiento asíncrono.</p>
             <p class="text-gray-300">• Cero margen de error legal: Automaticé la generación de contratos y pólizas, eliminando errores humanos en documentos regulatorios críticos.</p>
             <p class="text-gray-300">• Módulos parametrizados para la escalabilidad dinámica y asegurada del sistema.</p>
+            <p class="text-gray-300">• Módulos de seguridad y gestión de usuarios.</p>
         </div>
         <div>
             <h4 class="text-emerald-400 font-bold text-lg mb-2">Arquitectura (On-Premise)</h4>

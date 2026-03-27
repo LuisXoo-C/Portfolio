@@ -1,5 +1,26 @@
 export const experiences = [
   {
+    period: 'Enero 2025 - Actualidad',
+    position: 'Desarrollador de sistemas - Pasante Interno - DGET.',
+    company: 'Universidad Nacional Autónoma de Honduras - UNAH',
+    description: 'Asumí la responsabilidad en la modernización del sistema de registro y de gestión de matricula.',
+    achievements: [
+      'Aplicando estándares de ingeniería de software para modernizar el sistema.',
+    ],
+    technologies: ['Angular', 'TypeScript', 'JS', 'CSS','HTML5', 'Clean Architecture', 'SDLC', ],
+    references: [
+        {
+          name: 'MSc.',
+          phone: ''
+        },
+        {
+          name: 'MSc.',
+          phone: ''
+        },
+    ],
+
+  },
+  {
     period: '2024 - 2025',
     position: 'Desarrollador IoT Principal',
     company: 'Logix-UET / Logix GPS',
@@ -21,5 +42,5 @@ export const experiences = [
       }
     ],
 
-  }
+  },
 ]
