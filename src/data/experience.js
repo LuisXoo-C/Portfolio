@@ -21,7 +21,7 @@ export const experiences = [
 
   },
   {
-    period: '2024 - 2025',
+    period: 'Enero 2024 - Mayo 2025',
     position: 'Desarrollador IoT Principal',
     company: 'Logix-UET / Logix GPS',
     description: 'Asumí la responsabilidad total de los desarrollos del núcleo de negocio de la empresa. Desarrollé y migré todos los procesos empíricos hacia estándares de ingeniería de software profesionalizando el ecosistema IoT desde la arquitectura hasta el despliegue final.',
