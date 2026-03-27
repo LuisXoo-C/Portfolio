@@ -9,9 +9,9 @@ export const projects = [
     image: '/resources/Logo Crefisa.jpg',
     isPrivate: true, // Para mostrar el candado
     stats: {
-      value: '400%',
+      value: 'Reducción de tiempos por cliente: 6-7h ➝ 1h',
       label: 'Incremento en capacidad operativa',
-      subtext: 'Reducción de tiempos: 7h ➝ 45min'
+      subtext: '6-7h ➝ 1h'
     },
     // Este HTML se inyectará en el modal
     detailsHTML: `
@@ -50,7 +50,14 @@ export const projects = [
             <h4 class="text-emerald-400 font-bold text-lg mb-2">Metodología</h4>
             <p class="text-gray-300">Por cuestiones de confidencialidad no es posible brindar detalles tan específicos.</p>
         </div>
+        <div>
+            <h4 class="text-emerald-400 font-bold text-lg mb-2">Referencias</h4>
+            <p class="text-gray-300">Lic. Fernando Gómez. +504 9514-7998</p>
+        </div>
       </div>
+      
+      
+      
     `
   },
   // Proyecto de Sensores y Data Eng
