@@ -1,0 +1,77 @@
+---
+import { certificates } from "../data/certifications.js";
+---
+
+<div id="all-certs-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300">
+    <div class="bg-[#0a0a0a] border border-neutral-800 rounded-2xl w-full max-w-5xl max-h-[90vh] overflow-y-auto m-4 relative flex flex-col shadow-2xl transform scale-95 transition-transform duration-300" id="all-certs-content">
+
+        <div class="sticky top-0 bg-[#0a0a0a]/90 backdrop-blur-md border-b border-neutral-800 p-6 flex justify-between items-center z-10">
+            <div>
+                <h3 class="text-2xl font-bold text-white">Todas las <span class="text-emerald-400">Certificaciones</span></h3>
+                <p class="text-neutral-400 text-sm mt-1">Historial completo de aprendizaje</p>
+            </div>
+            <button onclick="window.closeAllCertsModal()" class="p-2 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 rounded-lg text-neutral-400 hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+        </div>
+
+        <div class="p-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {certificates.map(cert => (
+                        <article class="bg-neutral-900/30 border border-neutral-800 rounded-xl p-4 flex flex-col items-start hover:border-emerald-500/30 transition-all">
+                            <div class="w-full aspect-[4/3] bg-neutral-800 rounded-lg overflow-hidden mb-3">
+                                <img src={cert.image} alt={cert.title} class="w-full h-full object-cover"/>
+                            </div>
+                            <h4 class="text-white font-bold text-md">{cert.title}</h4>
+                            <p class="text-neutral-400 text-xs mb-3">{cert.issuer} • <span class="text-emerald-400">{cert.date}</span></p>
+                            <a href={cert.url} target="_blank" class="mt-auto w-full text-center py-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium rounded-lg transition-colors text-sm">
+                                Ver credencial
+                            </a>
+                        </article>
+                ))}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script client:load>
+    window.openAllCertsModal = () => {
+        const modal = document.getElementById('all-certs-modal');
+        const content = document.getElementById('all-certs-content');
+
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+
+        // Pequeño delay para la animación
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            content.classList.remove('scale-95');
+            content.classList.add('scale-100');
+        }, 10);
+
+        document.body.style.overflow = 'hidden';
+    };
+
+    window.closeAllCertsModal = () => {
+        const modal = document.getElementById('all-certs-modal');
+        const content = document.getElementById('all-certs-content');
+
+        modal.classList.add('opacity-0');
+        content.classList.remove('scale-100');
+        content.classList.add('scale-95');
+
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }, 300);
+
+        document.body.style.overflow = '';
+    };
+
+    // Cerrar al hacer click fuera del modal
+    document.getElementById('all-certs-modal')?.addEventListener('click', (e) => {
+        if (e.target.id === 'all-certs-modal') {
+            window.closeAllCertsModal();
+        }
+    });
+</script>

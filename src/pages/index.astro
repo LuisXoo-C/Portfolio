@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import ProjectModal from '../components/ProjectModal.astro';
 import { projects } from '../data/projects.js';
 import { experiences } from '../data/experience.js'; // Nueva data
+import { certificates} from "../data/certifications";
+import AllCertsModal from '../components/AllCertsModal.astro'; // <--- Agrega esto
 ---
 
 <Layout title="Angel | Fullstack Developer">
@@ -130,7 +132,7 @@ import { experiences } from '../data/experience.js'; // Nueva data
                                         {exp.references.map(ref => (
                                             <div class="bg-black/30 rounded-lg p-3 border border-neutral-700/50">
                                                 <p class="text-white font-medium text-sm">{ref.name}</p>
-                                                <p class="text-neutral-400 text-xs mb-2">{ref.position}</p>
+
                                                 <div class="flex flex-col gap-1">
                                                     {ref.phone && (
                                                         <a href={`tel:${ref.phone}`} class="text-emerald-400 text-xs hover:text-emerald-300 transition-colors flex items-center gap-2">
@@ -216,8 +218,45 @@ import { experiences } from '../data/experience.js'; // Nueva data
             </div>
         </section>
 
+        <section id="certificaciones" class="mb-20">
+      <div class="mb-8">
+        <h2 class="text-3xl md:text-5xl font-bold mb-2">Certificaciones <span class="text-emerald-400">Obtenidas</span></h2>
+        <p class="text-neutral-400 max-w-2xl">Cuatro certificaciones destacadas. Haz click en "Ver más" para ver la colección completa.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {certificates.map(cert => (
+          <article class="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-4 flex flex-col items-start hover:border-emerald-500/50 transition-all">
+            <div class="w-full aspect-[4/3] bg-neutral-800 rounded-lg overflow-hidden mb-3">
+              <img src={cert.image} alt={cert.title} class="w-full h-full object-cover"/>
+            </div>
+
+            <h3 class="text-white font-bold text-lg">{cert.title}</h3>
+            <p class="text-neutral-400 text-sm mb-2">{cert.issuer} • <span class="text-emerald-400">{cert.date}</span></p>
+
+            <div class="mt-auto w-full flex gap-2">
+              <a href={cert.url} target="_blank" class="flex-1 text-center py-2 bg-emerald-400 text-black font-medium rounded-lg hover:opacity-90 transition-colors text-sm">
+                Ver certificado
+              </a>
+
+              <button class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center" title="Abrir">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-400"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+              </button>
+            </div>
+          </article>
+        ))}
+      </div>
+
+            <div class="mt-8 flex justify-center">
+                <button onclick="window.openAllCertsModal()" class="px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-sm font-medium transition-all cursor-pointer">
+                    Ver más certificados
+                </button>
+            </div>
+    </section>
+
     </main>
 
     <ProjectModal />
+    <AllCertsModal />
 
 </Layout>
