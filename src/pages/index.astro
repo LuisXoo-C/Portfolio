@@ -225,7 +225,7 @@ import AllCertsModal from '../components/AllCertsModal.astro'; // <--- Agrega es
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {certificates.map(cert => (
+        {certificates.slice(0, 4).map(cert => (
           <article class="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-4 flex flex-col items-start hover:border-emerald-500/50 transition-all">
             <div class="w-full aspect-[4/3] bg-neutral-800 rounded-lg overflow-hidden mb-3">
               <img src={cert.image} alt={cert.title} class="w-full h-full object-cover"/>
@@ -238,10 +238,6 @@ import AllCertsModal from '../components/AllCertsModal.astro'; // <--- Agrega es
               <a href={cert.url} target="_blank" class="flex-1 text-center py-2 bg-emerald-400 text-black font-medium rounded-lg hover:opacity-90 transition-colors text-sm">
                 Ver certificado
               </a>
-
-              <button class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center" title="Abrir">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-400"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
-              </button>
             </div>
           </article>
         ))}
