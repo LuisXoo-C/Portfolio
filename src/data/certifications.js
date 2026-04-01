@@ -1,0 +1,11 @@
+export const certificates = [
+  { id: 1, title: 'IBM Data Engineering Specialization', issuer: 'IBM', date: 'Ene 2026', image: '/resources/certifications/miniaturas/Luis_Cardona_IBM-DataEngineering.png', url: '/resources/certifications/certificados/Luis_Cardona_IBM-DataEngineering.pdf' },
+  { id: 2, title: 'AWS Cloud Solutions Architect', issuer: 'AWS', date: 'Dic 2025', image: '/resources/certifications/miniaturas/Luis_Cardona_AWS-CloudSolutionsArchitec.jpg', url: '/resources/certifications/certificados/Luis_Cardona_AWS-CloudSolutionsArchitect.pdf' },
+  { id: 3, title: 'Google Data Analytics', issuer: 'Google', date: 'Oct 2024', image: '/resources/certifications/miniaturas/Luis_Cardona_Google-DataAnalytics.png', url: '/resources/certifications/certificados/Luis_Cardona_Google-DataAnalytics.pdf' },
+  { id: 4, title: 'Database Administrator (DBA)', issuer: 'Oracle', date: 'Dic 2025', image: '/resources/certifications/miniaturas/Luis_Cardona_Oracle.jpg', url: '/resources/certifications/certificados/Luis_Cardona_Oracle.pdf' },
+  { id: 5, title: 'ETL and Data Pipelines with Shell, Airflow and Kafka', issuer: 'IBM', date: 'Dic 2025', image: '/resources/certifications/miniaturas/Luis_Cardona_ETLDataPipelines.png', url: '/resources/certifications/certificados/Luis_Cardona_ETLDataPipelines.pdf' },
+  { id: 6, title: 'Database Foundations', issuer: 'Oracle', date: 'Ago 2024', image: '/resources/certifications/miniaturas/Luis_Cardona_DatabaseFoundations.png', url: '/resources/certifications/certificados/Luis_Cardona_DatabaseFoundations.pdf' },
+  { id: 7, title: 'AWS Fundamentals', issuer: 'AWS', date: 'Dic 2025', image: '/resources/certifications/miniaturas/Luis_Cardona_AWSFundamentals.png', url: '/resources/certifications/certificados/Luis_Cardona_AWSFundamentals.pdf' },
+  { id: 8, title: 'HCIA-Security v4.0', issuer: 'Huawei', date: 'Ago 2025', image: '/resources/certifications/miniaturas/Luis_Cardona_HCIA-Securityv4.0.png', url: '/resources/certifications/certificados/Luis_Cardona_HCIA-Securityv4.0.pdf' },
+  { id: 9, title: 'Database Administration (DBA)', issuer: 'IBM', date: 'Feb 2025', image: '/resources/certifications/miniaturas/Luis_Cardona_IBM-DBA.png', url: '/resources/certifications/certificados/Luis_Cardona_IBM-DBA.pdf' },
+];
