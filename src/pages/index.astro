@@ -4,33 +4,40 @@ import ProjectModal from '../components/ProjectModal.astro';
 import { projects } from '../data/projects.js';
 import { experiences } from '../data/experience.js'; // Nueva data
 import { certificates} from "../data/certifications";
-import AllCertsModal from '../components/AllCertsModal.astro'; // <--- Agrega esto
+import AllCertsModal from '../components/AllCertsModal.astro';
+import ClickMe from '../components/ClickMe.svelte';
 ---
 
 <Layout title="Angel | Fullstack Developer">
     <main class="max-w-6xl w-full mx-auto p-4 md:p-8">
 
         <!-- SECCIÓN 1: HERO + CONTACTO -->
-        <section id="hero" class="min-h-screen flex flex-col justify-center mb-20">
-            <header class="mb-8">
-                <h1 class="text-5xl md:text-7xl font-bold tracking-tighter mb-4">
+        <section id="hero" class="min-h-screen flex flex-col justify-center mb-20 relative">
+            <!-- Decorative background elements -->
+            <div class="absolute top-20 left-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+            <header class="mb-8 relative z-10">
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tighter mb-4 animate-slide-in-left">
                     Hola, soy <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-600">Luis Ángel</span>.
                 </h1>
             </header>
 
-            <div class="mb-12 max-w-3xl relative">
-                <div class="absolute -left-4 top-1 h-12 w-1 bg-gradient-to-b from-emerald-500 to-transparent rounded-full hidden md:block"></div>
+            <div class="mb-12 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                    <div class="lg:col-span-2">
+                        <div class="absolute -left-4 top-1 h-12 w-1 bg-gradient-to-b from-emerald-500 to-transparent rounded-full hidden md:block"></div>
 
-                <p class="text-xl md:text-2xl text-neutral-400 font-light leading-relaxed mb-6">
-                    Desarrollador de Software <span class="text-white font-medium">FullStack</span>.
-                    <br class="hidden md:block" />
-                    Actualmente construyendo proyectos orientados al datacycle, en transición a <span class="text-emerald-400 font-medium">Ingeniería de Datos</span>.
-                </p>
+                        <p class="text-xl md:text-2xl text-neutral-400 font-light leading-relaxed mb-6 animate-slide-in-bottom" style="animation-delay: 0.1s">
+                            Desarrollador de Software <span class="text-white font-medium">FullStack</span>.
+                            <br class="hidden md:block" />
+                            Actualmente construyendo proyectos orientados al datacycle, en transición a <span class="text-emerald-400 font-medium">Ingeniería de Datos</span>.
+                        </p>
+                    </div>
 
+                </div>
 
-
-
-                <div class="flex flex-wrap gap-4">
+                <div class="flex flex-wrap gap-4 items-center">
                     <div class="flex items-center gap-2 text-sm text-emerald-400 bg-emerald-900/20 px-3 py-1.5 rounded-lg border border-emerald-500/20">
                         <span class="relative flex h-2 w-2">
                           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -63,21 +70,21 @@ import AllCertsModal from '../components/AllCertsModal.astro'; // <--- Agrega es
             </div>
 
             <!-- Contacto -->
-            <div class="flex flex-wrap gap-4">
-                <a href="mailto:angel2.cardona@outlook.com" class="group flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-emerald-500/50 px-6 py-3 rounded-xl transition-all">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-400"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <div class="flex flex-wrap gap-4 relative z-10 animate-slide-in-bottom" style="animation-delay: 0.3s">
+                <a href="mailto:angel2.cardona@outlook.com" class="group flex items-center gap-3 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 hover:from-emerald-500/20 hover:to-cyan-500/20 border border-emerald-500/30 hover:border-emerald-400/60 px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-emerald-500/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-400 group-hover:scale-110 transition-transform"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                     <span class="text-sm font-medium">Email</span>
                 </a>
 
-                <a href="http://www.linkedin.com/in/luis-ángel-cardona-4922412b6" target="_blank" class="group flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-emerald-500/50 px-6 py-3 rounded-xl transition-all">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-emerald-400"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                <a href="http://www.linkedin.com/in/luis-ángel-cardona-4922412b6" target="_blank" class="group flex items-center gap-3 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 hover:from-emerald-500/20 hover:to-cyan-500/20 border border-emerald-500/30 hover:border-emerald-400/60 px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-emerald-500/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-emerald-400 group-hover:scale-110 transition-transform"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                     <span class="text-sm font-medium">LinkedIn</span>
                 </a>
             </div>
 
             <!-- Scroll indicator -->
-            <div class="mt-16 flex justify-center">
-                <a href="#experiencia" class="animate-bounce text-emerald-400">
+            <div class="mt-16 flex justify-center relative z-10">
+                <a href="#experiencia" class="animate-bounce text-emerald-400 hover:text-emerald-300 transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                 </a>
             </div>
@@ -97,10 +104,10 @@ import AllCertsModal from '../components/AllCertsModal.astro'; // <--- Agrega es
 
                 {experiences.map((exp) => (
                     <div class="relative mb-12 pl-12 md:pl-20">
-                        <div class="absolute left-4 md:left-8 w-4 h-4 bg-emerald-500 rounded-full border-4 border-[#0a0a0a] transform -translate-x-1/2"></div>
+                        <div class="absolute left-4 md:left-8 w-4 h-4 bg-emerald-500 rounded-full border-4 border-[#0a0a0a] transform -translate-x-1/2 shadow-lg shadow-emerald-500/50"></div>
 
-                        <div class="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-6 hover:border-emerald-500/50 transition-all group max-w-4xl">
-                            <span class="text-emerald-400 text-sm font-mono">{exp.period}</span>
+                        <div class="bg-gradient-to-br from-neutral-900/50 to-neutral-900/30 border border-neutral-800 hover:border-emerald-500/50 rounded-2xl p-6 hover:shadow-lg hover:shadow-emerald-500/10 transition-all group max-w-4xl">
+                            <span class="text-emerald-400 text-sm font-mono uppercase tracking-wider">{exp.period}</span>
                             <h3 class="text-2xl font-bold text-white mt-2 mb-1">{exp.position}</h3>
                             <h4 class="text-lg text-neutral-400 mb-4">{exp.company}</h4>
 
@@ -119,7 +126,7 @@ import AllCertsModal from '../components/AllCertsModal.astro'; // <--- Agrega es
 
                             <div class="flex flex-wrap gap-2">
                                 {exp.technologies.map(tech => (
-                                    <span class="px-3 py-1 bg-emerald-900/20 text-emerald-400 text-[10px] uppercase tracking-wider rounded-full border border-emerald-500/20">
+                                    <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-[10px] uppercase tracking-wider rounded-full border border-emerald-500/40 hover:bg-emerald-500/30 transition-colors">
                                         {tech}
                                     </span>
                                 ))}
@@ -130,7 +137,7 @@ import AllCertsModal from '../components/AllCertsModal.astro'; // <--- Agrega es
                                     <h5 class="text-sm font-bold text-emerald-400 mb-3 uppercase tracking-wider">Referencias</h5>
                                     <div class="space-y-3">
                                         {exp.references.map(ref => (
-                                            <div class="bg-black/30 rounded-lg p-3 border border-neutral-700/50">
+                                            <div class="bg-black/30 rounded-lg p-3 border border-neutral-700/50 hover:border-emerald-500/30 transition-colors">
                                                 <p class="text-white font-medium text-sm">{ref.name}</p>
 
                                                 <div class="flex flex-col gap-1">
@@ -163,16 +170,16 @@ import AllCertsModal from '../components/AllCertsModal.astro'; // <--- Agrega es
 
             <div class="grid grid-cols-1 md:grid-cols-4 auto-rows-auto md:auto-rows-[300px] gap-4">
                 {projects.map((project) => (
-                    <div class="col-span-1 md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-3xl bg-neutral-900 border border-neutral-800 p-4 md:p-6 hover:border-neutral-600 transition-colors flex flex-col justify-between min-h-[480px] md:min-h-0">
+                    <div class="col-span-1 md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-3xl bg-neutral-900 border border-neutral-800 hover:border-emerald-500/50 p-4 md:p-6 transition-all duration-300 flex flex-col justify-between min-h-[480px] md:min-h-0 shadow-lg hover:shadow-emerald-500/20">
 
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40 z-10"></div>
 
-                        <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-700" style={`background-image: url('${project.image}')`}></div>
+                        <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-110 transition-transform duration-700" style={`background-image: url('${project.image}')`}></div>
 
                         <div class="relative z-20 h-full flex flex-col justify-between">
                             <div class="flex justify-between items-start">
                                 <div class="flex gap-2 flex-wrap"> {project.tags.slice(0, 2).map(tag => (
-                                        <span class="bg-white/10 text-xs font-bold px-3 py-1 rounded-full border border-white/10 backdrop-blur-sm">
+                                        <span class="bg-emerald-500/20 border border-emerald-500/50 text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm hover:bg-emerald-500/30 transition-colors">
                                             {tag}
                                         </span>
                                     ))}
@@ -194,7 +201,7 @@ import AllCertsModal from '../components/AllCertsModal.astro'; // <--- Agrega es
                                     {project.shortDescription}
                                 </p>
 
-                                <div class="bg-white/5 border border-white/10 rounded-xl p-3 mb-4 backdrop-blur-sm">
+                                <div class="bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 border border-emerald-500/30 rounded-xl p-3 mb-4 backdrop-blur-sm">
                                     <div class="flex items-center gap-3">
                                         <span class="text-2xl font-bold text-emerald-400">{project.stats.value}</span>
                                         <p class="text-xs text-gray-400 leading-tight">
@@ -206,7 +213,7 @@ import AllCertsModal from '../components/AllCertsModal.astro'; // <--- Agrega es
                             </div>
 
                             <button
-                                class="w-full py-3 md:py-2 bg-white text-black text-sm font-bold rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 active:scale-95 duration-100"
+                                class="w-full py-3 md:py-2 bg-gradient-to-r from-emerald-500 to-emerald-400 text-black text-sm font-bold rounded-lg hover:from-emerald-400 hover:to-emerald-300 transition-all duration-200 flex items-center justify-center gap-2 active:scale-95 shadow-lg hover:shadow-emerald-500/40"
                                 onclick={`window.openProjectModal(${JSON.stringify(project)})`}
                             >
                                 Ver Arquitectura
@@ -226,16 +233,16 @@ import AllCertsModal from '../components/AllCertsModal.astro'; // <--- Agrega es
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {certificates.slice(0, 4).map(cert => (
-          <article class="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-4 flex flex-col items-start hover:border-emerald-500/50 transition-all">
-            <div class="w-full aspect-[4/3] bg-neutral-800 rounded-lg overflow-hidden mb-3">
+          <article class="group bg-gradient-to-br from-neutral-900/50 to-neutral-900/30 border border-neutral-800 hover:border-emerald-500/50 rounded-2xl p-4 flex flex-col items-start hover:shadow-lg hover:shadow-emerald-500/10 transition-all duration-300">
+            <div class="w-full aspect-[4/3] bg-neutral-800 rounded-lg overflow-hidden mb-3 group-hover:scale-105 transition-transform duration-300">
               <img src={cert.image} alt={cert.title} class="w-full h-full object-cover"/>
             </div>
 
             <h3 class="text-white font-bold text-lg">{cert.title}</h3>
-            <p class="text-neutral-400 text-sm mb-2">{cert.issuer} • <span class="text-emerald-400">{cert.date}</span></p>
+            <p class="text-neutral-400 text-sm mb-2">{cert.issuer} • <span class="text-emerald-400 font-medium">{cert.date}</span></p>
 
             <div class="mt-auto w-full flex gap-2">
-              <a href={cert.url} target="_blank" class="flex-1 text-center py-2 bg-emerald-400 text-black font-medium rounded-lg hover:opacity-90 transition-colors text-sm">
+              <a href={cert.url} target="_blank" class="flex-1 text-center py-2 bg-gradient-to-r from-emerald-500 to-emerald-400 text-black font-medium rounded-lg hover:opacity-90 hover:shadow-lg hover:shadow-emerald-500/30 transition-all text-sm active:scale-95">
                 Ver certificado
               </a>
             </div>
@@ -244,7 +251,7 @@ import AllCertsModal from '../components/AllCertsModal.astro'; // <--- Agrega es
       </div>
 
             <div class="mt-8 flex justify-center">
-                <button onclick="window.openAllCertsModal()" class="px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-sm font-medium transition-all cursor-pointer">
+                <button onclick="window.openAllCertsModal()" class="px-6 py-3 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 hover:from-emerald-500/20 hover:to-cyan-500/20 border border-emerald-500/30 hover:border-emerald-400/60 rounded-xl text-sm font-medium transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/20 cursor-pointer">
                     Ver más certificados
                 </button>
             </div>
@@ -254,5 +261,10 @@ import AllCertsModal from '../components/AllCertsModal.astro'; // <--- Agrega es
 
     <ProjectModal />
     <AllCertsModal />
+
+    <!-- Click counter - Fixed bottom-right -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <ClickMe client:load />
+    </div>
 
 </Layout>

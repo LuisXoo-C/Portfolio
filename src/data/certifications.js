@@ -8,4 +8,5 @@ export const certificates = [
   { id: 7, title: 'AWS Fundamentals', issuer: 'AWS', date: 'Dic 2025', image: '/resources/certifications/miniaturas/Luis_Cardona_AWSFundamentals.png', url: '/resources/certifications/certificados/Luis_Cardona_AWSFundamentals.pdf' },
   { id: 8, title: 'HCIA-Security v4.0', issuer: 'Huawei', date: 'Ago 2025', image: '/resources/certifications/miniaturas/Luis_Cardona_HCIA-Securityv4.0.png', url: '/resources/certifications/certificados/Luis_Cardona_HCIA-Securityv4.0.pdf' },
   { id: 9, title: 'Database Administration (DBA)', issuer: 'IBM', date: 'Feb 2025', image: '/resources/certifications/miniaturas/Luis_Cardona_IBM-DBA.png', url: '/resources/certifications/certificados/Luis_Cardona_IBM-DBA.pdf' },
+  { id: 10, title: 'Database Design', issuer: 'Oracle', date: 'Feb 2025', image: '/resources/certifications/miniaturas/Luis_Cardona_DatabaseDesign.png', url: '/resources/certifications/certificados/Luis_Cardona_DatabaseDesign.pdf' },
 ];
