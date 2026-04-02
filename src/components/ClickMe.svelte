@@ -68,7 +68,22 @@
 	}
 </script>
 
-<div class="relative flex flex-col items-center justify-center rounded-2xl lg:sticky lg:top-24 min-h-fit overflow-hidden group bg-gradient-to-br from-emerald-950/40 to-cyan-950/40 border border-emerald-500/30 p-5 hover:border-emerald-400/60 transition-all duration-300 shadow-xl hover:shadow-emerald-500/10">
+<div class="relative flex flex-col items-center justify-center rounded-2xl lg:sticky lg:top-24 min-h-fit group bg-gradient-to-br from-emerald-950/40 to-cyan-950/40 border border-emerald-500/30 p-5 hover:border-emerald-400/60 transition-all duration-300 shadow-xl hover:shadow-emerald-500/10">
+
+	<!-- Info tooltip -->
+	<div class="absolute top-0 right-0 z-50 group/info">
+		<button class="w-7 h-7 bg-neutral-800/90 hover:bg-emerald-500/20 border border-neutral-600 hover:border-emerald-500/50 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 backdrop-blur-sm">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-400 hover:text-emerald-400 transition-colors">
+				<circle cx="12" cy="12" r="10"/>
+				<path d="M12 16v-4"/>
+				<path d="M12 8h.01"/>
+			</svg>
+		</button>
+		<div class="absolute top-full right-0 mt-2 w-72 p-3 bg-neutral-900/95 border border-neutral-700 rounded-xl shadow-2xl opacity-0 invisible group-hover/info:opacity-100 group-hover/info:visible transition-all duration-300 z-50 text-xs text-neutral-300 leading-relaxed backdrop-blur-sm">
+			<p class="font-medium text-emerald-400 mb-1">Contador global en tiempo real</p>
+			<p>Cada clic es de todos los que han visitado este sitio. Totalmente inútil, pero extrañamente satisfactorio.</p>
+		</div>
+	</div>
 
 	<!-- Animated background gradient -->
 	<div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
