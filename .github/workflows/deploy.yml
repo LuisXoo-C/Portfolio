@@ -42,8 +42,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # La carpeta dist se genera dentro de la subcarpeta
-          path: ./Portfolio/dist
+          path: ./dist
 
   deploy:
     environment:
