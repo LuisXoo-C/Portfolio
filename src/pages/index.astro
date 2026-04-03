@@ -157,7 +157,7 @@ import ColorPaletteSwitcher from '../components/ColorPaletteSwitcher.svelte';
                             <p class="text-neutral-400 text-sm">Proyectos completados</p>
                         </div>
                         <div class="cp-stat-3 bg-gradient-to-br from-neutral-900/50 to-neutral-900/30 border rounded-2xl p-6 text-center">
-                            <p class="text-4xl font-black mb-1">6+</p>
+                            <p class="text-4xl font-black mb-1">7+</p>
                             <p class="text-neutral-400 text-sm">Certificaciones</p>
                         </div>
                         <div class="cp-stat-4 bg-gradient-to-br from-neutral-900/50 to-neutral-900/30 border rounded-2xl p-6 text-center">
@@ -205,27 +205,33 @@ import ColorPaletteSwitcher from '../components/ColorPaletteSwitcher.svelte';
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                <!-- Cada skill card — sin colores de acento hardcodeados, solo neutros -->
                 {[
-                    { name: 'React',      color: 'from-cyan-500/20 to-blue-500/20',    icon: 'cyan'   },
-                    { name: 'TypeScript', color: 'from-cyan-500/20 to-cyan-400/20',    icon: 'cyan'   },
-                    { name: 'Astro',      color: 'from-violet-500/20 to-purple-500/20',icon: 'violet' },
-                    { name: 'Tailwind',   color: 'from-sky-500/20 to-blue-400/20',     icon: 'sky'    },
-                    { name: 'Node.js',    color: 'from-green-500/20 to-emerald-500/20',icon: 'green'  },
-                    { name: 'Python',     color: 'from-blue-500/20 to-indigo-500/20',  icon: 'blue'   },
-                    { name: 'PostgreSQL', color: 'from-amber-500/20 to-orange-500/20', icon: 'amber'  },
-                    { name: 'MySQL',      color: 'from-red-500/20 to-pink-500/20',     icon: 'red'    },
-                    { name: 'MongoDB',    color: 'from-green-500/20 to-lime-500/20',   icon: 'green'  },
-                    { name: 'Git',        color: 'from-orange-500/20 to-red-500/20',   icon: 'orange' },
-                    { name: 'Docker',     color: 'from-blue-500/20 to-indigo-500/20',  icon: 'blue'   },
-                    { name: 'Svelte',     color: 'from-pink-500/20 to-rose-500/20',    icon: 'pink'   },
+                    { name: 'Python',        color: 'from-cyan-500/20 to-blue-500/20',     icon: 'cyan',   url: 'https://www.python.org/' },
+                    { name: 'ETL',       color: 'from-green-500/20 to-lime-500/20',    icon: 'green',  url: 'https://share.google/HS5qk9pHySJgmBqdY' },
+                    { name: 'Angular',       color: 'from-cyan-500/20 to-cyan-400/20',     icon: 'cyan',   url: 'https://angular.io/' },
+                    { name: 'PHP-Laravel',   color: 'from-violet-500/20 to-purple-500/20', icon: 'violet', url: 'https://laravel.com/' },
+                    { name: 'TypeScript/JS', color: 'from-sky-500/20 to-blue-400/20',      icon: 'sky',    url: 'https://www.typescriptlang.org/' },
+                    { name: 'Tailwind',      color: 'from-green-500/20 to-emerald-500/20', icon: 'green',  url: 'https://tailwindcss.com/' },
+                    { name: 'Node.js',       color: 'from-blue-500/20 to-indigo-500/20',   icon: 'blue',   url: 'https://nodejs.org/' },
+                    { name: 'PostgreSQL',    color: 'from-amber-500/20 to-orange-500/20',  icon: 'amber',  url: 'https://www.postgresql.org/' },
+                    { name: 'MySQL',         color: 'from-red-500/20 to-pink-500/20',      icon: 'red',    url: 'https://www.mysql.com/' },
+                    { name: 'Git',           color: 'from-orange-500/20 to-red-500/20',    icon: 'orange', url: 'https://git-scm.com/' },
+                    { name: 'Docker',        color: 'from-blue-500/20 to-indigo-500/20',   icon: 'blue',   url: 'https://www.docker.com/' },
+                    { name: 'AWS',           color: 'from-pink-500/20 to-rose-500/20',     icon: 'pink',   url: 'https://aws.amazon.com/' },
                 ].map(skill => (
-                        <div class="cp-card group bg-gradient-to-br from-neutral-900/50 to-neutral-900/30 border border-neutral-800 rounded-2xl p-6 flex flex-col items-center justify-center gap-3 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                        <a
+                                href={skill.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="cp-card group bg-gradient-to-br from-neutral-900/50 to-neutral-900/30 border border-neutral-800 rounded-2xl p-6 flex flex-col items-center justify-center gap-3 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/50 cursor-pointer"
+                        >
                             <div class={`w-12 h-12 bg-gradient-to-br ${skill.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform`}>
-                                <svg class="w-6 h-6 text-white/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                                <svg class="w-6 h-6 text-white/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                </svg>
                             </div>
-                            <span class="text-sm font-medium text-neutral-300">{skill.name}</span>
-                        </div>
+                            <span class="text-sm font-medium text-neutral-300 group-hover:text-emerald-400 transition-colors">{skill.name}</span>
+                        </a>
                 ))}
             </div>
         </section>

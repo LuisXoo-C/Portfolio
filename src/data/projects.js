@@ -64,35 +64,45 @@ export const projects = [
   // Proyecto de Sensores y Data Eng
   {
     id: 'iot-system',
-    title: 'Sistema IoT + Data Engineering',
-    shortDescription: 'Monitoreo de sensores en tiempo real, abarca todo el ciclo de vida de los datos. (Desde la Generación hasta la Visualización de los datos.)',
-    tags: ['Python', 'ETL', 'C++', 'Docker', 'FastAPI', 'RedPanda', 'MinIO', 'Postgres DB', 'Metabase'],
+    title: 'Sistema IoT & Data Engineering',
+    shortDescription: 'Arquitectura de datos end-to-end. Desde que el sensor parpadea hasta el dashboard de Metabase, evitando Data Swamps en el camino.',
+    tags: ['Python', 'FastAPI', 'RedPanda', 'MinIO', 'PostgreSQL', 'Metabase', 'Docker', 'IoT'],
     image: '/resources/Proyecto-sensores.png',
     isPrivate: false,
     stats: {
-      value: 'Real-time',
-      label: 'Latencia < 100ms',
-      subtext: 'Transmisión de datos sensoriales'
+      value: 'Lakehouse',
+      label: 'Arquitectura Híbrida',
+      subtext: 'Cold (S3) & Hot (SQL) Storage'
     },
     detailsHTML: `
-      <div class="space-y-6">
-        <div>
-            <h4 class="text-emerald-400 font-bold text-lg mb-2">Logros</h4>
-            <p class="text-gray-300">• Obtuve un acercamiento más allá de un simple ETL, hice un proyecto completo y recorriendo cada etapa del ciclo de datos, superando los problemas de análisis.</p>
-            <p class="text-gray-300">• Logré hacer y comprender el ciclo de vida completo de un sistema de datos y como está comprendido cada elemento para hacer que los datos raw al concluir tengan sentido para el usuario final.</p>
-            <p class="text-gray-300">• Desacoplamiento del sistema completo, para que cuando se rompa algo no afecte a las demás partes del sistema.</p>
-            <p class="text-gray-300">• Logré hacer un sistema de datos estandarizado y mantenible.</p>
-        </div>
-        <!--
-        <div>
-            <h4 class="text-emerald-400 font-bold text-lg mb-2">Arquitectura</h4>
-            <ul class="list-disc list-inside text-gray-300 space-y-1">
-                <li><strong>AUN NO TENGO TIEMPO PARA RELLENAR esta info</strong> .</li>
-            </ul>
-        </div>
-        -->
+    <div class="space-y-6 text-gray-300 leading-relaxed text-sm md:text-base">
+      
+      <div>
+        <p>Llegué a la conclusión de que limpiar un archivo CSV estático es como llegar al cine cuando la película ya terminó y solo ves los créditos: te pierdes toda la acción. Inspirado por <em>"Fundamentals of Data Engineering"</em>, construí este proyecto para dejar de ser un espectador y convertirme en el director de la orquesta de datos.</p>
       </div>
-    `
+
+      <div>
+        <h4 class="text-emerald-400 font-bold text-lg mb-2">The Journey (Buscando el Big Picture)</h4>
+        <p>Quería entender de dónde vienen los datos y hacia dónde van realmente. Pasé de la teoría a la práctica construyendo un ciclo de vida completo: Generación -> Ingesta -> Almacenamiento -> Transformación -> Serving. Aprendí que la Ingeniería de Datos es mucho más que un simple script ETL; es garantizar que la historia del dato se cuente bien de principio a fin sin que el sistema colapse en el intento.</p>
+      </div>
+
+      <div>
+        <h4 class="text-emerald-400 font-bold text-lg mb-2">Technical Stack (Decisiones de Diseño - ADRs)</h4>
+        <ul class="space-y-2 mt-2">
+            <li><strong class="text-white">Redpanda:</strong> Al principio pensé en el estándar de la industria (Apache Kafka). Pero levantar un clúster con Zookeeper para este volumen era, literalmente, usar una bazuca para matar un mosquito. Redpanda me dio la API de Kafka en C++ con cero estrés administrativo en Docker.</li>
+            <li><strong class="text-white">FastAPI & Schema Registry:</strong> Implementé un "Shift-Left" en la calidad. Si un sensor envía una temperatura de 500°C (físicamente imposible), el contrato de datos rechaza el mensaje en la puerta. Adiós al temido <em>Data Swamp</em>.</li>
+            <li><strong class="text-white">MinIO + PostgreSQL:</strong> Implementé un patrón Lakehouse híbrido. MinIO (S3) actúa como mi basurero glorificado para almacenar datos crudos de forma barata (Cold Data), y Postgres sirve solo los datos VIP ya procesados (Hot Data).</li>
+            <li><strong class="text-white">Metabase:</strong> Porque necesitamos monitorear el desgaste de baterías y predecir mantenimientos en dashboards bonitos, y porque es open-source.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-emerald-400 font-bold text-lg mb-2">The Reality Check (Post-Mortem)</h4>
+        <p>El reto más grande no fue el código, sino la persistencia de datos. Al reiniciar mis contenedores, Metabase entraba en un bucle de la muerte. Descubrí que el script <code>init-metabase.sql</code> era ignorado por Postgres si el volumen (<code>pgdata</code>) ya existía (una medida de protección). Aprendí a golpes la diferencia entre <em>"Day 1 Ops"</em> (instalación) y <em>"Day 2 Ops"</em> (mantenimiento continuo).</p>
+      </div>
+
+    </div>
+  `
   },
     // Sistema de los puertos de red.
   {
