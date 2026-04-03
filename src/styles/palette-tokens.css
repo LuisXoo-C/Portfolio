@@ -1,0 +1,245 @@
+/*
+  palette-tokens.css
+  Importa este archivo en tu Layout.astro o global.css.
+  El componente ColorPaletteSwitcher.svelte inyecta las variables
+  en :root → todo el sitio reacciona automáticamente.
+*/
+
+/* ─── Valores por defecto (emerald) ─── */
+:root {
+  --cp-primary:        #10b981;
+  --cp-primary-dark:   #059669;
+  --cp-primary-light:  #34d399;
+  --cp-secondary:      #06b6d4;
+  --cp-accent:         #6ee7b7;
+  --cp-glow:           rgba(16,185,129,0.15);
+  --cp-glow-strong:    rgba(16,185,129,0.25);
+  --cp-border:         rgba(16,185,129,0.3);
+  --cp-border-hover:   rgba(16,185,129,0.6);
+  --cp-bg-card:        rgba(16,185,129,0.05);
+  --cp-bg-card-hover:  rgba(16,185,129,0.1);
+  --cp-text-muted:     #6ee7b7;
+  --cp-stat-1:         #10b981;
+  --cp-stat-2:         #06b6d4;
+  --cp-stat-3:         #8b5cf6;
+  --cp-stat-4:         #f59e0b;
+  --cp-gradient-from:  #10b981;
+  --cp-gradient-to:    #06b6d4;
+  --cp-ping:           #10b981;
+  --cp-timeline:       #10b981;
+  --cp-tag-bg:         rgba(16,185,129,0.2);
+  --cp-tag-text:       #10b981;
+  --cp-tag-border:     rgba(16,185,129,0.4);
+  --cp-btn-from:       #10b981;
+  --cp-btn-to:         #34d399;
+  --cp-btn-shadow:     rgba(16,185,129,0.4);
+}
+
+/* ─── NAV progress bar ─── */
+#progress-bar {
+  background: linear-gradient(to right, var(--cp-gradient-from), var(--cp-gradient-to)) !important;
+  transition: background 0.4s ease;
+}
+
+/* ─── NAV active link ─── */
+.nav-link.text-white {
+  background-color: color-mix(in srgb, var(--cp-primary) 20%, transparent) !important;
+  border-color: color-mix(in srgb, var(--cp-primary) 40%, transparent) !important;
+}
+.nav-link:hover {
+  color: white !important;
+}
+
+/* ─── Hero gradient text ─── */
+header h1 span.text-transparent {
+  background-image: linear-gradient(to right, var(--cp-primary), var(--cp-secondary)) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  transition: background-image 0.4s ease;
+}
+
+/* ─── Status badges (available / english) ─── */
+.text-emerald-400 {
+  color: var(--cp-primary) !important;
+  transition: color 0.3s;
+}
+.bg-emerald-900\/20 {
+  background-color: var(--cp-glow) !important;
+}
+.border-emerald-500\/20 {
+  border-color: var(--cp-border) !important;
+}
+
+/* ─── Ping animation dot ─── */
+.bg-emerald-400, .bg-emerald-500 {
+  background-color: var(--cp-primary) !important;
+}
+
+/* ─── Hero / contact buttons ─── */
+.from-emerald-500\/10 {
+  --tw-gradient-from: var(--cp-glow) !important;
+}
+.to-cyan-500\/10 {
+  --tw-gradient-to: rgba(6,182,212,0.1) !important;
+}
+.hover\:from-emerald-500\/20:hover {
+  --tw-gradient-from: var(--cp-glow-strong) !important;
+}
+.border-emerald-500\/30 {
+  border-color: var(--cp-border) !important;
+}
+.hover\:border-emerald-400\/60:hover {
+  border-color: var(--cp-border-hover) !important;
+}
+.hover\:shadow-emerald-500\/20:hover {
+  --tw-shadow-color: var(--cp-glow-strong) !important;
+}
+
+/* ─── Section headings accent ─── */
+h2 span.text-emerald-400 {
+  color: var(--cp-primary) !important;
+}
+
+/* ─── Cards hover border & glow ─── */
+.hover\:border-emerald-500\/50:hover {
+  border-color: color-mix(in srgb, var(--cp-primary) 50%, transparent) !important;
+}
+.hover\:shadow-emerald-500\/10:hover {
+  --tw-shadow-color: var(--cp-glow) !important;
+}
+
+/* ─── Stats cards ─── */
+.text-emerald-400 { color: var(--cp-stat-1) !important; }
+.text-cyan-400    { color: var(--cp-stat-2) !important; }
+
+/* Individual stat card borders */
+.border-emerald-500\/30 { border-color: color-mix(in srgb, var(--cp-stat-1) 30%, transparent) !important; }
+.border-cyan-500\/30    { border-color: color-mix(in srgb, var(--cp-stat-2) 30%, transparent) !important; }
+
+/* ─── Focus / motivation icons ─── */
+.bg-emerald-500\/20 {
+  background-color: color-mix(in srgb, var(--cp-primary) 20%, transparent) !important;
+}
+.bg-emerald-500\/10 {
+  background-color: var(--cp-glow) !important;
+}
+
+/* ─── Motivation bullets ─── */
+li > span.text-emerald-400,
+li > span[class*="text-emerald"] {
+  color: var(--cp-primary) !important;
+}
+
+/* ─── Scroll arrow ─── */
+a.animate-bounce {
+  color: var(--cp-primary) !important;
+}
+
+/* ─── Experience timeline ─── */
+.bg-emerald-500.rounded-full {
+  background-color: var(--cp-timeline) !important;
+  box-shadow: 0 0 12px var(--cp-glow-strong) !important;
+}
+.from-emerald-500.via-cyan-500 {
+  --tw-gradient-from: var(--cp-gradient-from) !important;
+  --tw-gradient-via: var(--cp-gradient-to) !important;
+}
+.text-emerald-400.text-sm.font-mono {
+  color: var(--cp-primary) !important;
+}
+.border-emerald-500\/30 {
+  border-color: var(--cp-border) !important;
+}
+
+/* Tech tags in experience */
+.bg-emerald-500\/20.text-emerald-400 {
+  background-color: var(--cp-tag-bg) !important;
+  color: var(--cp-tag-text) !important;
+  border-color: var(--cp-tag-border) !important;
+}
+
+/* References hover */
+.hover\:border-emerald-500\/30:hover {
+  border-color: var(--cp-border) !important;
+}
+
+/* ─── Project cards — tag badges ─── */
+.bg-emerald-500\/20.border-emerald-500\/50 {
+  background-color: var(--cp-tag-bg) !important;
+  border-color: var(--cp-tag-border) !important;
+}
+
+/* "Ver Arquitectura" button */
+button.bg-gradient-to-r.from-emerald-500.to-emerald-400,
+a.bg-gradient-to-r.from-emerald-500.to-emerald-400 {
+  background: linear-gradient(to right, var(--cp-btn-from), var(--cp-btn-to)) !important;
+}
+.hover\:shadow-emerald-500\/40:hover {
+  --tw-shadow-color: var(--cp-btn-shadow) !important;
+}
+
+/* Stats panel inside project card */
+.from-emerald-500\/10.to-cyan-500\/10 {
+  background: linear-gradient(to right, var(--cp-glow), rgba(6,182,212,0.1)) !important;
+}
+.text-emerald-400.font-bold { color: var(--cp-primary) !important; }
+
+/* ─── Certifications "Ver certificado" button ─── */
+a.bg-gradient-to-r.from-emerald-500 {
+  background: linear-gradient(to right, var(--cp-btn-from), var(--cp-btn-to)) !important;
+}
+.hover\:shadow-emerald-500\/30:hover {
+  --tw-shadow-color: color-mix(in srgb, var(--cp-primary) 30%, transparent) !important;
+}
+
+/* "Ver más certificados" button */
+button.border-emerald-500\/30 {
+  border-color: var(--cp-border) !important;
+}
+
+/* ─── Contact section ─── */
+.group:hover .group-hover\:bg-emerald-500\/10 {
+  background-color: var(--cp-glow) !important;
+}
+.group:hover .group-hover\:border-emerald-500\/40 {
+  border-color: color-mix(in srgb, var(--cp-primary) 40%, transparent) !important;
+}
+.bg-emerald-500\/20 svg { color: var(--cp-primary) !important; }
+
+/* Availability badge */
+.from-emerald-500\/10.to-cyan-500\/10.border-emerald-500\/30 {
+  border-color: var(--cp-border) !important;
+}
+
+/* ─── Footer heart ─── */
+.text-emerald-500 {
+  color: var(--cp-primary) !important;
+}
+
+/* ─── Decorative blobs in hero ─── */
+.bg-emerald-500\/5  { background-color: color-mix(in srgb, var(--cp-primary) 5%,  transparent) !important; }
+.bg-cyan-500\/5     { background-color: color-mix(in srgb, var(--cp-secondary) 5%, transparent) !important; }
+
+/* ─── Vertical accent bar ─── */
+.from-emerald-500.to-transparent {
+  --tw-gradient-from: var(--cp-primary) !important;
+}
+
+/* ─── Smooth palette transitions ─── */
+*, *::before, *::after {
+  transition:
+    color           0.35s ease,
+    background-color 0.35s ease,
+    border-color    0.35s ease,
+    box-shadow      0.35s ease;
+}
+
+/* ─── Exceptions: no transition on animated elements ─── */
+.animate-ping,
+.animate-bounce,
+.animate-slide-in-left,
+.animate-slide-in-bottom,
+.group-hover\:scale-110,
+.hover\:-translate-y-1 {
+  transition: none !important;
+}

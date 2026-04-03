@@ -1,6 +1,6 @@
 export const experiences = [
   {
-    period: 'Enero 2025 - Actualidad',
+    period: 'Enero 2026 - Actualidad',
     position: 'Desarrollador de sistemas - Pasante Interno - DGET.',
     company: 'Universidad Nacional Autónoma de Honduras - UNAH',
     description: 'Asumí la responsabilidad en la modernización del sistema de registro y de gestión de matricula.',
