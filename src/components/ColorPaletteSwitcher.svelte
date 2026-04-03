@@ -3,6 +3,41 @@
 
   const palettes = [
     {
+      id: 'gold',
+      name: 'Oro',
+      emoji: '✦',
+      primary: '#C9A84C',
+      secondary: '#E8C870',
+      vars: {
+        '--cp-primary':        '#C9A84C',
+        '--cp-primary-dark':   '#A8872E',
+        '--cp-primary-light':  '#E8C870',
+        '--cp-secondary':      '#E8C870',
+        '--cp-accent':         '#F5E6B8',
+        '--cp-glow':           'rgba(201,168,76,0.12)',
+        '--cp-glow-strong':    'rgba(201,168,76,0.22)',
+        '--cp-border':         'rgba(201,168,76,0.28)',
+        '--cp-border-hover':   'rgba(232,200,112,0.65)',
+        '--cp-bg-card':        'rgba(201,168,76,0.05)',
+        '--cp-bg-card-hover':  'rgba(201,168,76,0.10)',
+        '--cp-text-muted':     '#E8C870',
+        '--cp-stat-1':         '#C9A84C',
+        '--cp-stat-2':         '#B8963A',
+        '--cp-stat-3':         '#8b7355',
+        '--cp-stat-4':         '#D4AF6A',
+        '--cp-gradient-from':  '#A8872E',
+        '--cp-gradient-to':    '#E8C870',
+        '--cp-ping':           '#C9A84C',
+        '--cp-timeline':       '#C9A84C',
+        '--cp-tag-bg':         'rgba(201,168,76,0.15)',
+        '--cp-tag-text':       '#E8C870',
+        '--cp-tag-border':     'rgba(201,168,76,0.35)',
+        '--cp-btn-from':       '#A8872E',
+        '--cp-btn-to':         '#C9A84C',
+        '--cp-btn-shadow':     'rgba(201,168,76,0.35)',
+      }
+    },
+    {
       id: 'emerald',
       name: 'Esmeralda',
       emoji: '🟢',
@@ -214,7 +249,7 @@
     },
   ];
 
-  let active = 'emerald';
+  let active = 'gold';
   let open = false;
 
   function applyPalette(palette) {
