@@ -2,269 +2,531 @@
 import Layout from '../layouts/Layout.astro';
 import ProjectModal from '../components/ProjectModal.astro';
 import { projects } from '../data/projects.js';
-import { experiences } from '../data/experience.js'; // Nueva data
+import { experiences } from '../data/experience.js';
 import { certificates} from "../data/certifications";
 import AllCertsModal from '../components/AllCertsModal.astro';
 import ClickMe from '../components/ClickMe.svelte';
+import ColorPaletteSwitcher from '../components/ColorPaletteSwitcher.svelte';
 ---
 
 <Layout title="Angel | Fullstack Developer">
+    <!-- Sticky Navigation / Roadmap -->
+    <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-neutral-900/80 backdrop-blur-lg border border-neutral-800 rounded-full px-4 py-2 shadow-2xl">
+        <ul class="flex items-center gap-1">
+            <li><a href="#hero"          class="nav-link text-[10px] md:text-xs px-3 py-1.5 rounded-full text-neutral-400 hover:text-white hover:bg-neutral-800 transition-all">Inicio</a></li>
+            <li><a href="#about"         class="nav-link text-[10px] md:text-xs px-3 py-1.5 rounded-full text-neutral-400 hover:text-white hover:bg-neutral-800 transition-all">Sobre Mí</a></li>
+            <li><a href="#skills"        class="nav-link text-[10px] md:text-xs px-3 py-1.5 rounded-full text-neutral-400 hover:text-white hover:bg-neutral-800 transition-all">Skills</a></li>
+            <li><a href="#experiencia"   class="nav-link text-[10px] md:text-xs px-3 py-1.5 rounded-full text-neutral-400 hover:text-white hover:bg-neutral-800 transition-all">Experiencia</a></li>
+            <li><a href="#proyectos"     class="nav-link text-[10px] md:text-xs px-3 py-1.5 rounded-full text-neutral-400 hover:text-white hover:bg-neutral-800 transition-all">Proyectos</a></li>
+            <li><a href="#certificaciones" class="nav-link text-[10px] md:text-xs px-3 py-1.5 rounded-full text-neutral-400 hover:text-white hover:bg-neutral-800 transition-all">Certs</a></li>
+            <li><a href="#contacto"      class="nav-link text-[10px] md:text-xs px-3 py-1.5 rounded-full text-neutral-400 hover:text-white hover:bg-neutral-800 transition-all">Contacto</a></li>
+        </ul>
+        <div class="absolute bottom-0 left-0 h-0.5 rounded-full transition-all duration-300" id="progress-bar"></div>
+    </nav>
+
     <main class="max-w-6xl w-full mx-auto p-4 md:p-8">
 
-        <!-- SECCIÓN 1: HERO + CONTACTO -->
+        <!-- ═══════════════════════════════════════
+             SECCIÓN 1: HERO
+             ═══════════════════════════════════════ -->
         <section id="hero" class="min-h-screen flex flex-col justify-center mb-20 relative">
-            <!-- Decorative background elements -->
-            <div class="absolute top-20 left-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none"></div>
+            <!-- Blobs decorativos -->
+            <div class="cp-blob-1 absolute top-20 left-0 w-96 h-96 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="cp-blob-2 absolute bottom-0 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none"></div>
 
             <header class="mb-8 relative z-10">
                 <h1 class="text-5xl md:text-7xl font-bold tracking-tighter mb-4 animate-slide-in-left">
-                    Hola, soy <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-600">Luis Ángel</span>.
+                    Hola, soy <span class="cp-gradient-text">Luis Ángel Cardona</span>.
                 </h1>
             </header>
 
             <div class="mb-12 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
                     <div class="lg:col-span-2">
-                        <div class="absolute -left-4 top-1 h-12 w-1 bg-gradient-to-b from-emerald-500 to-transparent rounded-full hidden md:block"></div>
+                        <div class="cp-accent-bar absolute -left-4 top-1 h-12 w-1 rounded-full hidden md:block"></div>
 
                         <p class="text-xl md:text-2xl text-neutral-400 font-light leading-relaxed mb-6 animate-slide-in-bottom" style="animation-delay: 0.1s">
                             Desarrollador de Software <span class="text-white font-medium">FullStack</span>.
                             <br class="hidden md:block" />
-                            Actualmente construyendo proyectos orientados al datacycle, en transición a <span class="text-emerald-400 font-medium">Ingeniería de Datos</span>.
+                            Actualmente construyendo proyectos orientados al datacycle, en transición a
+                            <span class="cp-text font-medium">Ingeniería de Datos</span>.
                         </p>
                     </div>
-
                 </div>
 
                 <div class="flex flex-wrap gap-4 items-center">
-                    <div class="flex items-center gap-2 text-sm text-emerald-400 bg-emerald-900/20 px-3 py-1.5 rounded-lg border border-emerald-500/20">
+                    <!-- Badge: Disponible -->
+                    <div class="cp-available-badge flex items-center gap-2 text-sm px-3 py-1.5 rounded-lg border">
                         <span class="relative flex h-2 w-2">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                            <span class="cp-ping-outer animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"></span>
+                            <span class="cp-ping-inner relative inline-flex rounded-full h-2 w-2"></span>
                         </span>
                         Disponible para nuevos retos
                     </div>
 
-                    <div class="flex items-center gap-2 text-sm text-emerald-400 bg-emerald-900/20 px-3 py-1.5 rounded-lg border border-emerald-500/20">
+                    <!-- Badge: Inglés -->
+                    <div class="cp-available-badge flex items-center gap-2 text-sm px-3 py-1.5 rounded-lg border">
                         <span class="relative flex h-2 w-2">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                            <span class="cp-ping-outer animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"></span>
+                            <span class="cp-ping-inner relative inline-flex rounded-full h-2 w-2"></span>
                         </span>
                         Inglés: B2
                     </div>
 
+                    <!-- Badge: Data Eng -->
                     <div class="flex items-center gap-2 text-sm text-gray-400 bg-white/5 px-3 py-1.5 rounded-lg border border-white/10">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 11 4-7"/><path d="m19 13-4 7"/><path d="M14 11h5.5a1.5 1.5 0 0 1 1.5 1.5v3.5a1.5 1.5 0 0 1-1.5 1.5H14v-5z"/><path d="M10 13H4.5a1.5 1.5 0 0 1-1.5-1.5v-3.5a1.5 1.5 0 0 1 1.5-1.5H10v5z"/></svg>
                         Ingeniería de Datos
                     </div>
 
+                    <!-- Badge: Ubicación -->
                     <div class="flex items-center gap-2 text-sm text-gray-400 bg-white/5 px-3 py-1.5 rounded-lg border border-white/10">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/>
-                        <circle cx="12" cy="10" r="2"/>
-                      </svg>
-                      Honduras, Tegucigalpa
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/>
+                            <circle cx="12" cy="10" r="2"/>
+                        </svg>
+                        Honduras, Tegucigalpa
                     </div>
                 </div>
             </div>
 
-            <!-- Contacto -->
+            <!-- Botones de contacto -->
             <div class="flex flex-wrap gap-4 relative z-10 animate-slide-in-bottom" style="animation-delay: 0.3s">
-                <a href="mailto:angel2.cardona@outlook.com" class="group flex items-center gap-3 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 hover:from-emerald-500/20 hover:to-cyan-500/20 border border-emerald-500/30 hover:border-emerald-400/60 px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-emerald-500/20">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-400 group-hover:scale-110 transition-transform"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <a href="mailto:angel2.cardona@outlook.com"
+                   class="cp-contact-btn group flex items-center gap-3 px-6 py-3 rounded-xl transition-all duration-300 shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:scale-110 transition-transform"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                     <span class="text-sm font-medium">Email</span>
                 </a>
 
-                <a href="http://www.linkedin.com/in/luis-ángel-cardona-4922412b6" target="_blank" class="group flex items-center gap-3 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 hover:from-emerald-500/20 hover:to-cyan-500/20 border border-emerald-500/30 hover:border-emerald-400/60 px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-emerald-500/20">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-emerald-400 group-hover:scale-110 transition-transform"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                <a href="http://www.linkedin.com/in/luis-ángel-cardona-4922412b6" target="_blank"
+                   class="cp-contact-btn group flex items-center gap-3 px-6 py-3 rounded-xl transition-all duration-300 shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="group-hover:scale-110 transition-transform"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                     <span class="text-sm font-medium">LinkedIn</span>
                 </a>
             </div>
 
             <!-- Scroll indicator -->
             <div class="mt-16 flex justify-center relative z-10">
-                <a href="#experiencia" class="animate-bounce text-emerald-400 hover:text-emerald-300 transition-colors">
+                <a href="#about" class="cp-scroll-arrow animate-bounce hover:opacity-70 transition-opacity">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                 </a>
             </div>
         </section>
 
-        <!-- SECCIÓN 2: EXPERIENCIA LABORAL -->
+        <!-- ═══════════════════════════════════════
+             SECCIÓN 2: SOBRE MÍ
+             ═══════════════════════════════════════ -->
+        <section id="about" class="mb-32">
+            <div class="mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                    Sobre <span class="cp-text">Mí</span>
+                </h2>
+                <p class="text-neutral-400 max-w-2xl">Mi journey y lo que me motiva</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Bio card -->
+                <div class="cp-card bg-gradient-to-br from-neutral-900/50 to-neutral-900/30 border border-neutral-800 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="cp-icon-wrap w-12 h-12 rounded-xl flex items-center justify-center">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Mi Historia</h3>
+                    </div>
+
+                    <p class="text-neutral-300 leading-relaxed mb-4">
+                        Soy un desarrollador <span class="cp-text font-medium">FullStack</span> con residencia en Tegucigalpa, Honduras. Me gusta hacer proyectos cools cuando estoy aburrido.
+                    </p>
+                    <p class="text-neutral-300 leading-relaxed mb-4">
+                        Actualmente estoy en transición hacia <span class="cp-text font-medium">Ingeniería de Datos</span>, combinando mi experiencia en desarrollo con nuevas habilidades en procesamiento, almacenamiento y análisis de datos a escala.
+                    </p>
+                    <p class="text-neutral-300 leading-relaxed mb-4">
+                        Fuera de la informática, me gusta leer, organizar, el gym y me gusta la fotografía.
+                    </p>
+                </div>
+
+                <!-- Stats & Focus card -->
+                <div class="space-y-6">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="cp-stat-1 bg-gradient-to-br from-neutral-900/50 to-neutral-900/30 border rounded-2xl p-6 text-center">
+                            <p class="text-4xl font-black mb-1">1.5+</p>
+                            <p class="text-neutral-400 text-sm">Años de experiencia</p>
+                        </div>
+                        <div class="cp-stat-2 bg-gradient-to-br from-neutral-900/50 to-neutral-900/30 border rounded-2xl p-6 text-center">
+                            <p class="text-4xl font-black mb-1">5+</p>
+                            <p class="text-neutral-400 text-sm">Proyectos completados</p>
+                        </div>
+                        <div class="cp-stat-3 bg-gradient-to-br from-neutral-900/50 to-neutral-900/30 border rounded-2xl p-6 text-center">
+                            <p class="text-4xl font-black mb-1">6+</p>
+                            <p class="text-neutral-400 text-sm">Certificaciones</p>
+                        </div>
+                        <div class="cp-stat-4 bg-gradient-to-br from-neutral-900/50 to-neutral-900/30 border rounded-2xl p-6 text-center">
+                            <p class="text-4xl font-black mb-1">∞</p>
+                            <p class="text-neutral-400 text-sm">Curiosidad</p>
+                        </div>
+                    </div>
+
+                    <!-- Lo que me motiva -->
+                    <div class="cp-card bg-gradient-to-br from-neutral-900/50 to-neutral-900/30 border border-neutral-800 rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="cp-icon-wrap w-10 h-10 rounded-lg flex items-center justify-center">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                            </div>
+                            <h3 class="text-lg font-bold text-white">Lo que me motiva</h3>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3 text-neutral-300 text-sm">
+                                <span class="cp-bullet mt-1">▹</span>
+                                <span>Transformar datos complejos en insights accionables</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-neutral-300 text-sm">
+                                <span class="cp-bullet mt-1">▹</span>
+                                <span>Construir arquitecturas escalables y eficientes</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-neutral-300 text-sm">
+                                <span class="cp-bullet mt-1">▹</span>
+                                <span>Aprender continuamente y compartir conocimiento</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════
+             SECCIÓN 3: SKILLS
+             ═══════════════════════════════════════ -->
+        <section id="skills" class="mb-32">
+            <div class="mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                    Habilidades <span class="cp-text">Técnicas</span>
+                </h2>
+                <p class="text-neutral-400 max-w-2xl">Stack tecnológico que domino y utilizo</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <!-- Cada skill card — sin colores de acento hardcodeados, solo neutros -->
+                {[
+                    { name: 'React',      color: 'from-cyan-500/20 to-blue-500/20',    icon: 'cyan'   },
+                    { name: 'TypeScript', color: 'from-cyan-500/20 to-cyan-400/20',    icon: 'cyan'   },
+                    { name: 'Astro',      color: 'from-violet-500/20 to-purple-500/20',icon: 'violet' },
+                    { name: 'Tailwind',   color: 'from-sky-500/20 to-blue-400/20',     icon: 'sky'    },
+                    { name: 'Node.js',    color: 'from-green-500/20 to-emerald-500/20',icon: 'green'  },
+                    { name: 'Python',     color: 'from-blue-500/20 to-indigo-500/20',  icon: 'blue'   },
+                    { name: 'PostgreSQL', color: 'from-amber-500/20 to-orange-500/20', icon: 'amber'  },
+                    { name: 'MySQL',      color: 'from-red-500/20 to-pink-500/20',     icon: 'red'    },
+                    { name: 'MongoDB',    color: 'from-green-500/20 to-lime-500/20',   icon: 'green'  },
+                    { name: 'Git',        color: 'from-orange-500/20 to-red-500/20',   icon: 'orange' },
+                    { name: 'Docker',     color: 'from-blue-500/20 to-indigo-500/20',  icon: 'blue'   },
+                    { name: 'Svelte',     color: 'from-pink-500/20 to-rose-500/20',    icon: 'pink'   },
+                ].map(skill => (
+                        <div class="cp-card group bg-gradient-to-br from-neutral-900/50 to-neutral-900/30 border border-neutral-800 rounded-2xl p-6 flex flex-col items-center justify-center gap-3 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                            <div class={`w-12 h-12 bg-gradient-to-br ${skill.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                                <svg class="w-6 h-6 text-white/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                            </div>
+                            <span class="text-sm font-medium text-neutral-300">{skill.name}</span>
+                        </div>
+                ))}
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════
+             SECCIÓN 4: EXPERIENCIA
+             ═══════════════════════════════════════ -->
         <section id="experiencia" class="mb-32">
             <div class="mb-12">
                 <h2 class="text-3xl md:text-5xl font-bold mb-4">
-                    Experiencia <span class="text-emerald-400">Profesional</span>
+                    Experiencia <span class="cp-text">Profesional</span>
                 </h2>
                 <p class="text-neutral-400 max-w-2xl">Transformando ideas en soluciones escalables</p>
             </div>
 
             <div class="relative">
-                <div class="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-500 via-cyan-500 to-transparent"></div>
+                <div class="cp-timeline-line absolute left-4 md:left-8 top-0 bottom-0 w-0.5"></div>
 
                 {experiences.map((exp) => (
-                    <div class="relative mb-12 pl-12 md:pl-20">
-                        <div class="absolute left-4 md:left-8 w-4 h-4 bg-emerald-500 rounded-full border-4 border-[#0a0a0a] transform -translate-x-1/2 shadow-lg shadow-emerald-500/50"></div>
+                        <div class="relative mb-12 pl-12 md:pl-20">
+                            <div class="cp-dot absolute left-4 md:left-8 w-4 h-4 rounded-full border-4 border-[#0a0a0a] transform -translate-x-1/2"></div>
 
-                        <div class="bg-gradient-to-br from-neutral-900/50 to-neutral-900/30 border border-neutral-800 hover:border-emerald-500/50 rounded-2xl p-6 hover:shadow-lg hover:shadow-emerald-500/10 transition-all group max-w-4xl">
-                            <span class="text-emerald-400 text-sm font-mono uppercase tracking-wider">{exp.period}</span>
-                            <h3 class="text-2xl font-bold text-white mt-2 mb-1">{exp.position}</h3>
-                            <h4 class="text-lg text-neutral-400 mb-4">{exp.company}</h4>
+                            <div class="cp-card bg-gradient-to-br from-neutral-900/50 to-neutral-900/30 border border-neutral-800 rounded-2xl p-6 hover:shadow-lg transition-all group max-w-4xl">
+                                <span class="cp-text text-sm font-mono uppercase tracking-wider">{exp.period}</span>
+                                <h3 class="text-2xl font-bold text-white mt-2 mb-1">{exp.position}</h3>
+                                <h4 class="text-lg text-neutral-400 mb-4">{exp.company}</h4>
 
-                            <p class="text-neutral-300 mb-6 italic border-l-2 border-emerald-500/30 pl-4 text-left">
-                                {exp.description}
-                            </p>
+                                <p class="cp-border-left text-neutral-300 mb-6 italic border-l-2 pl-4 text-left">
+                                    {exp.description}
+                                </p>
 
-                            <ul class="space-y-3 mb-6">
-                                {exp.achievements.map(achievement => (
-                                    <li class="flex items-start text-sm text-neutral-400 text-left">
-                                        <span class="text-emerald-500 mr-2 mt-1">▹</span>
-                                        <span>{achievement}</span>
-                                    </li>
-                                ))}
-                            </ul>
+                                <ul class="space-y-3 mb-6">
+                                    {exp.achievements.map(achievement => (
+                                            <li class="flex items-start text-sm text-neutral-400 text-left">
+                                                <span class="cp-bullet mr-2 mt-1">▹</span>
+                                                <span>{achievement}</span>
+                                            </li>
+                                    ))}
+                                </ul>
 
-                            <div class="flex flex-wrap gap-2">
-                                {exp.technologies.map(tech => (
-                                    <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-[10px] uppercase tracking-wider rounded-full border border-emerald-500/40 hover:bg-emerald-500/30 transition-colors">
+                                <div class="flex flex-wrap gap-2">
+                                    {exp.technologies.map(tech => (
+                                            <span class="cp-tag px-3 py-1 text-[10px] uppercase tracking-wider rounded-full border hover:opacity-80 transition-opacity">
                                         {tech}
                                     </span>
-                                ))}
-                            </div>
-
-                            {exp.references && exp.references.length > 0 && (
-                                <div class="mt-6 pt-6 border-t border-neutral-700">
-                                    <h5 class="text-sm font-bold text-emerald-400 mb-3 uppercase tracking-wider">Referencias</h5>
-                                    <div class="space-y-3">
-                                        {exp.references.map(ref => (
-                                            <div class="bg-black/30 rounded-lg p-3 border border-neutral-700/50 hover:border-emerald-500/30 transition-colors">
-                                                <p class="text-white font-medium text-sm">{ref.name}</p>
-
-                                                <div class="flex flex-col gap-1">
-                                                    {ref.phone && (
-                                                        <a href={`tel:${ref.phone}`} class="text-emerald-400 text-xs hover:text-emerald-300 transition-colors flex items-center gap-2">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                                                            {ref.phone}
-                                                        </a>
-                                                    )}
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
+                                    ))}
                                 </div>
-                            )}
+
+                                {exp.references && exp.references.length > 0 && (
+                                        <div class="mt-6 pt-6 border-t border-neutral-700">
+                                            <h5 class="cp-text text-sm font-bold mb-3 uppercase tracking-wider">Referencias</h5>
+                                            <div class="space-y-3">
+                                                {exp.references.map(ref => (
+                                                        <div class="bg-black/30 rounded-lg p-3 border border-neutral-700/50 hover:border-neutral-600 transition-colors">
+                                                            <p class="text-white font-medium text-sm">{ref.name}</p>
+                                                            <div class="flex flex-col gap-1">
+                                                                {ref.phone && (
+                                                                        <a href={`tel:${ref.phone}`} class="cp-text text-xs hover:opacity-70 transition-opacity flex items-center gap-2">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                                                            {ref.phone}
+                                                                        </a>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                )}
+                            </div>
                         </div>
-                    </div>
                 ))}
             </div>
         </section>
 
-        <!-- SECCIÓN 3: PROYECTOS DESTACADOS -->
+        <!-- ═══════════════════════════════════════
+             SECCIÓN 5: PROYECTOS
+             ═══════════════════════════════════════ -->
         <section id="proyectos" class="mb-20">
             <div class="mb-12">
                 <h2 class="text-3xl md:text-5xl font-bold mb-4">
-                    Proyectos <span class="text-emerald-400">Destacados</span>
+                    Proyectos <span class="cp-text">Destacados</span>
                 </h2>
                 <p class="text-neutral-400 max-w-2xl">Soluciones que generan impacto real</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-4 auto-rows-auto md:auto-rows-[300px] gap-4">
                 {projects.map((project) => (
-                    <div class="col-span-1 md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-3xl bg-neutral-900 border border-neutral-800 hover:border-emerald-500/50 p-4 md:p-6 transition-all duration-300 flex flex-col justify-between min-h-[480px] md:min-h-0 shadow-lg hover:shadow-emerald-500/20">
+                        <div class="col-span-1 md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-3xl bg-neutral-900 border border-neutral-800 hover:border-neutral-600 p-4 md:p-6 transition-all duration-300 flex flex-col justify-between min-h-[480px] md:min-h-0 shadow-lg">
 
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40 z-10"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40 z-10"></div>
+                            <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-110 transition-transform duration-700" style={`background-image: url('${project.image}')`}></div>
 
-                        <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-110 transition-transform duration-700" style={`background-image: url('${project.image}')`}></div>
-
-                        <div class="relative z-20 h-full flex flex-col justify-between">
-                            <div class="flex justify-between items-start">
-                                <div class="flex gap-2 flex-wrap"> {project.tags.slice(0, 2).map(tag => (
-                                        <span class="bg-emerald-500/20 border border-emerald-500/50 text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm hover:bg-emerald-500/30 transition-colors">
+                            <div class="relative z-20 h-full flex flex-col justify-between">
+                                <div class="flex justify-between items-start">
+                                    <div class="flex gap-2 flex-wrap">
+                                        {project.tags.slice(0, 2).map(tag => (
+                                                <span class="cp-tag text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">
                                             {tag}
                                         </span>
-                                    ))}
-                                </div>
-                                {project.isPrivate && (
-                                    <div class="bg-black/60 p-2 rounded-full backdrop-blur-md border border-white/10 shrink-0" title="Proyecto Privado">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                        ))}
                                     </div>
-                                )}
-                            </div>
+                                    {project.isPrivate && (
+                                            <div class="bg-black/60 p-2 rounded-full backdrop-blur-md border border-white/10 shrink-0" title="Proyecto Privado">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                            </div>
+                                    )}
+                                </div>
 
-                            <div class="mt-4 md:mt-0"> <h3 class="text-emerald-400 font-bold tracking-widest uppercase text-xs mb-1">
-                                    {project.company}
-                                </h3>
+                                <div class="mt-4 md:mt-0">
+                                    <h3 class="cp-text font-bold tracking-widest uppercase text-xs mb-1">
+                                        {project.company}
+                                    </h3>
+                                    <h2 class="text-2xl font-bold text-white mb-2 leading-tight">{project.title}</h2>
+                                    <p class="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3 md:line-clamp-2">
+                                        {project.shortDescription}
+                                    </p>
 
-                                <h2 class="text-2xl font-bold text-white mb-2 leading-tight">{project.title}</h2>
-
-                                <p class="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3 md:line-clamp-2">
-                                    {project.shortDescription}
-                                </p>
-
-                                <div class="bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 border border-emerald-500/30 rounded-xl p-3 mb-4 backdrop-blur-sm">
-                                    <div class="flex items-center gap-3">
-                                        <span class="text-2xl font-bold text-emerald-400">{project.stats.value}</span>
-                                        <p class="text-xs text-gray-400 leading-tight">
-                                            {project.stats.label}<br>
-                                            <span class="text-white">{project.stats.subtext}</span>
-                                        </p>
+                                    <div class="cp-stats-panel rounded-xl p-3 mb-4 backdrop-blur-sm">
+                                        <div class="flex items-center gap-3">
+                                            <span class="cp-text text-2xl font-bold">{project.stats.value}</span>
+                                            <p class="text-xs text-gray-400 leading-tight">
+                                                {project.stats.label}<br>
+                                                <span class="text-white">{project.stats.subtext}</span>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <button
-                                class="w-full py-3 md:py-2 bg-gradient-to-r from-emerald-500 to-emerald-400 text-black text-sm font-bold rounded-lg hover:from-emerald-400 hover:to-emerald-300 transition-all duration-200 flex items-center justify-center gap-2 active:scale-95 shadow-lg hover:shadow-emerald-500/40"
-                                onclick={`window.openProjectModal(${JSON.stringify(project)})`}
-                            >
-                                Ver Arquitectura
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                            </button>
+                                <button
+                                        class="cp-btn w-full py-3 md:py-2 text-sm font-bold rounded-lg transition-all duration-200 flex items-center justify-center gap-2 active:scale-95 shadow-lg"
+                                        onclick={`window.openProjectModal(${JSON.stringify(project)})`}
+                                >
+                                    Ver Arquitectura
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                </button>
+                            </div>
                         </div>
-                    </div>
                 ))}
             </div>
         </section>
 
+        <!-- ═══════════════════════════════════════
+             SECCIÓN 6: CERTIFICACIONES
+             ═══════════════════════════════════════ -->
         <section id="certificaciones" class="mb-20">
-      <div class="mb-8">
-        <h2 class="text-3xl md:text-5xl font-bold mb-2">Certificaciones <span class="text-emerald-400">Obtenidas</span></h2>
-        <p class="text-neutral-400 max-w-2xl">Cuatro certificaciones destacadas. Haz click en "Ver más" para ver la colección completa.</p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {certificates.slice(0, 4).map(cert => (
-          <article class="group bg-gradient-to-br from-neutral-900/50 to-neutral-900/30 border border-neutral-800 hover:border-emerald-500/50 rounded-2xl p-4 flex flex-col items-start hover:shadow-lg hover:shadow-emerald-500/10 transition-all duration-300">
-            <div class="w-full aspect-[4/3] bg-neutral-800 rounded-lg overflow-hidden mb-3 group-hover:scale-105 transition-transform duration-300">
-              <img src={cert.image} alt={cert.title} class="w-full h-full object-cover"/>
+            <div class="mb-8">
+                <h2 class="text-3xl md:text-5xl font-bold mb-2">
+                    Certificaciones <span class="cp-text">Obtenidas</span>
+                </h2>
+                <p class="text-neutral-400 max-w-2xl">Cuatro certificaciones destacadas. Haz click en "Ver más" para ver la colección completa.</p>
             </div>
 
-            <h3 class="text-white font-bold text-lg">{cert.title}</h3>
-            <p class="text-neutral-400 text-sm mb-2">{cert.issuer} • <span class="text-emerald-400 font-medium">{cert.date}</span></p>
-
-            <div class="mt-auto w-full flex gap-2">
-              <a href={cert.url} target="_blank" class="flex-1 text-center py-2 bg-gradient-to-r from-emerald-500 to-emerald-400 text-black font-medium rounded-lg hover:opacity-90 hover:shadow-lg hover:shadow-emerald-500/30 transition-all text-sm active:scale-95">
-                Ver certificado
-              </a>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {certificates.slice(0, 4).map(cert => (
+                        <article class="cp-card group bg-gradient-to-br from-neutral-900/50 to-neutral-900/30 border border-neutral-800 rounded-2xl p-4 flex flex-col items-start hover:shadow-lg transition-all duration-300">
+                            <div class="w-full aspect-[4/3] bg-neutral-800 rounded-lg overflow-hidden mb-3 group-hover:scale-105 transition-transform duration-300">
+                                <img src={cert.image} alt={cert.title} class="w-full h-full object-cover"/>
+                            </div>
+                            <h3 class="text-white font-bold text-lg">{cert.title}</h3>
+                            <p class="text-neutral-400 text-sm mb-2">{cert.issuer} • <span class="cp-text font-medium">{cert.date}</span></p>
+                            <div class="mt-auto w-full flex gap-2">
+                                <a href={cert.url} target="_blank"
+                                   class="cp-cert-btn flex-1 text-center py-2 text-black font-medium rounded-lg hover:opacity-90 transition-all text-sm active:scale-95">
+                                    Ver certificado
+                                </a>
+                            </div>
+                        </article>
+                ))}
             </div>
-          </article>
-        ))}
-      </div>
 
             <div class="mt-8 flex justify-center">
-                <button onclick="window.openAllCertsModal()" class="px-6 py-3 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 hover:from-emerald-500/20 hover:to-cyan-500/20 border border-emerald-500/30 hover:border-emerald-400/60 rounded-xl text-sm font-medium transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/20 cursor-pointer">
+                <button onclick="window.openAllCertsModal()"
+                        class="cp-more-btn px-6 py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:shadow-lg cursor-pointer border">
                     Ver más certificados
                 </button>
             </div>
-    </section>
+        </section>
 
+        <!-- ═══════════════════════════════════════
+             SECCIÓN 7: CONTACTO
+             ═══════════════════════════════════════ -->
+        <section id="contacto" class="mb-32">
+            <div class="mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                    Vamos a <span class="cp-text">Conectar</span>
+                </h2>
+                <p class="text-neutral-400 max-w-2xl">¿Tienes un proyecto en mente? ¡Hablemos!</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="space-y-6">
+                    <div class="cp-card bg-gradient-to-br from-neutral-900/50 to-neutral-900/30 border border-neutral-800 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
+                        <h3 class="text-xl font-bold text-white mb-6">Información de Contacto</h3>
+                        <div class="space-y-4">
+                            <a href="mailto:angel2.cardona@outlook.com"
+                               class="cp-contact-item group flex items-center gap-4 p-4 rounded-xl bg-neutral-800/30 border border-neutral-700 transition-all">
+                                <div class="cp-icon-wrap w-12 h-12 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                </div>
+                                <div>
+                                    <p class="text-neutral-400 text-xs uppercase tracking-wider">Email</p>
+                                    <p class="text-white font-medium">angel2.cardona@outlook.com</p>
+                                </div>
+                            </a>
+
+                            <a href="http://www.linkedin.com/in/luis-ángel-cardona-4922412b6" target="_blank"
+                               class="cp-contact-item group flex items-center gap-4 p-4 rounded-xl bg-neutral-800/30 border border-neutral-700 transition-all">
+                                <div class="cp-icon-wrap w-12 h-12 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                                </div>
+                                <div>
+                                    <p class="text-neutral-400 text-xs uppercase tracking-wider">LinkedIn</p>
+                                    <p class="text-white font-medium">Conecta conmigo</p>
+                                </div>
+                            </a>
+
+                            <div class="flex items-center gap-4 p-4 rounded-xl bg-neutral-800/30 border border-neutral-700">
+                                <div class="cp-icon-wrap w-12 h-12 rounded-lg flex items-center justify-center">
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="2"/></svg>
+                                </div>
+                                <div>
+                                    <p class="text-neutral-400 text-xs uppercase tracking-wider">Ubicación</p>
+                                    <p class="text-white font-medium">Tegucigalpa, Honduras</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Availability badge -->
+                    <div class="cp-available-badge rounded-2xl p-6 border">
+                        <div class="flex items-center gap-3">
+                            <span class="relative flex h-3 w-3">
+                                <span class="cp-avail-dot-outer animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"></span>
+                                <span class="cp-avail-dot-inner relative inline-flex rounded-full h-3 w-3"></span>
+                            </span>
+                            <div>
+                                <p class="text-white font-medium">Disponible para nuevos retos</p>
+                                <p class="text-neutral-400 text-sm">Open to work & collaborations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════
+             FOOTER
+             ═══════════════════════════════════════ -->
+        <footer class="border-t border-neutral-800 pt-12 pb-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="text-center md:text-left">
+                    <p class="text-neutral-400 text-sm">© 2026 Luis Ángel Cardona. Todos los derechos reservados.</p>
+                    <p class="text-neutral-500 text-xs mt-1">Honduras, Tegucigalpa</p>
+                </div>
+                <div class="flex items-center gap-2 text-neutral-500 text-xs">
+                    <span>Construido con</span>
+                    <svg class="cp-heart w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    <span>con Astro & Tailwind</span>
+                </div>
+            </div>
+        </footer>
     </main>
 
     <ProjectModal />
     <AllCertsModal />
 
-    <!-- Click counter - Fixed bottom-right -->
-    <div class="fixed bottom-6 right-6 z-50">
+    <!-- Botones flotantes -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-3">
+        <ColorPaletteSwitcher client:load />
         <ClickMe client:load />
     </div>
 
+    <script>
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const progressBar = document.getElementById('progress-bar');
+
+        const observerOptions = { root: null, rootMargin: '-50% 0px', threshold: 0 };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active-section');
+                        link.classList.add('text-neutral-400');
+                        link.classList.remove('text-white');
+                        if (link.getAttribute('href') === `#${entry.target.id}`) {
+                            link.classList.add('active-section', 'text-white');
+                            link.classList.remove('text-neutral-400');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            progressBar.style.width = ((scrollTop / docHeight) * 100) + '%';
+        });
+    </script>
 </Layout>

@@ -1,0 +1,213 @@
+/* ══════════════════════════════════════════════
+   VARIABLES POR DEFECTO (Emerald)
+   ══════════════════════════════════════════════ */
+:root {
+  --cp-primary:        #10b981;
+  --cp-primary-dark:   #059669;
+  --cp-primary-light:  #34d399;
+  --cp-secondary:      #06b6d4;
+  --cp-accent:         #6ee7b7;
+  --cp-glow:           rgba(16,185,129,0.15);
+  --cp-glow-strong:    rgba(16,185,129,0.25);
+  --cp-border:         rgba(16,185,129,0.3);
+  --cp-border-hover:   rgba(16,185,129,0.6);
+  --cp-bg-card:        rgba(16,185,129,0.05);
+  --cp-bg-card-hover:  rgba(16,185,129,0.1);
+  --cp-text-muted:     #6ee7b7;
+  --cp-stat-1:         #10b981;
+  --cp-stat-2:         #06b6d4;
+  --cp-stat-3:         #8b5cf6;
+  --cp-stat-4:         #f59e0b;
+  --cp-gradient-from:  #10b981;
+  --cp-gradient-to:    #06b6d4;
+  --cp-ping:           #10b981;
+  --cp-timeline:       #10b981;
+  --cp-tag-bg:         rgba(16,185,129,0.2);
+  --cp-tag-text:       #10b981;
+  --cp-tag-border:     rgba(16,185,129,0.4);
+  --cp-btn-from:       #10b981;
+  --cp-btn-to:         #34d399;
+  --cp-btn-shadow:     rgba(16,185,129,0.4);
+}
+
+/* ══════════════════════════════════════════════
+   CLASES SEMÁNTICAS — úsalas en index.astro
+   en lugar de las clases Tailwind de color
+   ══════════════════════════════════════════════ */
+
+/* Textos de acento */
+.cp-text          { color: var(--cp-primary) !important; }
+.cp-text-light    { color: var(--cp-primary-light) !important; }
+.cp-text-muted    { color: var(--cp-text-muted) !important; }
+
+/* Fondos */
+.cp-bg            { background-color: var(--cp-glow) !important; }
+.cp-bg-strong     { background-color: var(--cp-glow-strong) !important; }
+.cp-bg-solid      { background-color: var(--cp-primary) !important; }
+
+/* Bordes */
+.cp-border        { border-color: var(--cp-border) !important; }
+.cp-border-hover:hover { border-color: var(--cp-border-hover) !important; }
+
+/* Gradiente de texto (hero h1) */
+.cp-gradient-text {
+  background-image: linear-gradient(to right, var(--cp-gradient-from), var(--cp-gradient-to));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Botón principal */
+.cp-btn {
+  background: linear-gradient(to right, var(--cp-btn-from), var(--cp-btn-to)) !important;
+  color: #000 !important;
+}
+.cp-btn:hover {
+  box-shadow: 0 10px 30px var(--cp-btn-shadow) !important;
+}
+
+/* Tag/badge de tecnología */
+.cp-tag {
+  background-color: var(--cp-tag-bg) !important;
+  color: var(--cp-tag-text) !important;
+  border-color: var(--cp-tag-border) !important;
+}
+
+/* Timeline dot */
+.cp-dot {
+  background-color: var(--cp-timeline) !important;
+  box-shadow: 0 0 12px var(--cp-glow-strong) !important;
+}
+
+/* Timeline line */
+.cp-timeline-line {
+  background: linear-gradient(to bottom, var(--cp-gradient-from), var(--cp-gradient-to), transparent) !important;
+}
+
+/* Botones de contacto (hero) */
+.cp-contact-btn {
+  background: linear-gradient(to right, var(--cp-glow), color-mix(in srgb, var(--cp-secondary) 10%, transparent)) !important;
+  border-color: var(--cp-border) !important;
+}
+.cp-contact-btn:hover {
+  background: linear-gradient(to right, var(--cp-glow-strong), color-mix(in srgb, var(--cp-secondary) 20%, transparent)) !important;
+  border-color: var(--cp-border-hover) !important;
+  box-shadow: 0 10px 30px var(--cp-glow) !important;
+}
+.cp-contact-btn svg { color: var(--cp-primary) !important; }
+
+/* Card hover */
+.cp-card:hover {
+  border-color: color-mix(in srgb, var(--cp-primary) 50%, transparent) !important;
+  box-shadow: 0 10px 40px var(--cp-glow) !important;
+}
+
+/* Stats card colores individuales */
+.cp-stat-1 { color: var(--cp-stat-1) !important; border-color: color-mix(in srgb, var(--cp-stat-1) 30%, transparent) !important; }
+.cp-stat-2 { color: var(--cp-stat-2) !important; border-color: color-mix(in srgb, var(--cp-stat-2) 30%, transparent) !important; }
+.cp-stat-3 { color: var(--cp-stat-3) !important; border-color: color-mix(in srgb, var(--cp-stat-3) 30%, transparent) !important; }
+.cp-stat-4 { color: var(--cp-stat-4) !important; border-color: color-mix(in srgb, var(--cp-stat-4) 30%, transparent) !important; }
+
+/* Barra de progreso del nav */
+#progress-bar {
+  background: linear-gradient(to right, var(--cp-gradient-from), var(--cp-gradient-to)) !important;
+}
+
+/* Nav link activo */
+.nav-link.active-section {
+  color: white !important;
+  background-color: color-mix(in srgb, var(--cp-primary) 20%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--cp-primary) 40%, transparent) !important;
+}
+
+/* Ping dots de disponibilidad */
+.cp-ping-outer {
+  background-color: var(--cp-primary) !important;
+  opacity: 0.75;
+}
+.cp-ping-inner {
+  background-color: var(--cp-primary) !important;
+}
+
+/* Disponibilidad badge */
+.cp-available-badge {
+  color: var(--cp-primary) !important;
+  background-color: var(--cp-glow) !important;
+  border-color: var(--cp-border) !important;
+}
+
+/* Accent bar vertical */
+.cp-accent-bar {
+  background: linear-gradient(to bottom, var(--cp-primary), transparent) !important;
+}
+
+/* Blobs decorativos hero */
+.cp-blob-1 { background-color: color-mix(in srgb, var(--cp-primary)   5%, transparent) !important; }
+.cp-blob-2 { background-color: color-mix(in srgb, var(--cp-secondary) 5%, transparent) !important; }
+
+/* Footer heart */
+.cp-heart { color: var(--cp-primary) !important; }
+
+/* Scroll arrow */
+.cp-scroll-arrow { color: var(--cp-primary) !important; }
+
+/* Border izquierdo en description (experience) */
+.cp-border-left {
+  border-left-color: color-mix(in srgb, var(--cp-primary) 30%, transparent) !important;
+}
+
+/* Bullet ▹ en listas */
+.cp-bullet { color: var(--cp-primary) !important; }
+
+/* Icon wrappers */
+.cp-icon-wrap {
+  background-color: color-mix(in srgb, var(--cp-primary) 20%, transparent) !important;
+}
+.cp-icon-wrap svg { color: var(--cp-primary) !important; }
+
+/* Stats panel dentro de project card */
+.cp-stats-panel {
+  background: linear-gradient(to right, var(--cp-glow), color-mix(in srgb, var(--cp-secondary) 10%, transparent)) !important;
+  border-color: var(--cp-border) !important;
+}
+
+/* "Ver más certificados" button */
+.cp-more-btn {
+  background: linear-gradient(to right, var(--cp-glow), color-mix(in srgb, var(--cp-secondary) 10%, transparent)) !important;
+  border-color: var(--cp-border) !important;
+}
+.cp-more-btn:hover {
+  background: linear-gradient(to right, var(--cp-glow-strong), color-mix(in srgb, var(--cp-secondary) 20%, transparent)) !important;
+  border-color: var(--cp-border-hover) !important;
+}
+
+/* Cert button */
+.cp-cert-btn {
+  background: linear-gradient(to right, var(--cp-btn-from), var(--cp-btn-to)) !important;
+}
+.cp-cert-btn:hover {
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--cp-primary) 30%, transparent) !important;
+}
+
+/* Contact item hover */
+.cp-contact-item:hover {
+  background-color: var(--cp-glow) !important;
+  border-color: color-mix(in srgb, var(--cp-primary) 40%, transparent) !important;
+}
+
+/* Availability badge (contacto) */
+.cp-avail-dot-outer { background-color: var(--cp-primary) !important; }
+.cp-avail-dot-inner { background-color: var(--cp-primary) !important; }
+
+/* ══════════════════════════════════════════════
+   TRANSICIONES SUAVES AL CAMBIAR PALETA
+   (solo en propiedades de color, no en transforms)
+   ══════════════════════════════════════════════ */
+*:not(.animate-ping):not(.animate-bounce):not([class*="animate-slide"]):not([class*="group-hover"]):not([class*="hover:-translate"]) {
+  transition:
+          color            0.35s ease,
+          background-color 0.35s ease,
+          border-color     0.35s ease,
+          box-shadow       0.35s ease,
+          background       0.35s ease;
+}
