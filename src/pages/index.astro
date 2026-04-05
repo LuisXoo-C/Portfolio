@@ -543,4 +543,26 @@ import ColorPaletteSwitcher from '../components/ColorPaletteSwitcher.svelte';
             progressBar.style.width = ((scrollTop / docHeight) * 100) + '%';
         });
     </script>
+    <script is:inline>
+        function copyEmailToClipboard(text, btnElement) {
+            // Usa la API moderna del navegador para copiar
+            navigator.clipboard.writeText(text).then(() => {
+                // Encuentra los íconos dentro del botón que clickeaste
+                const copyIcon = btnElement.querySelector('.copy-icon');
+                const checkIcon = btnElement.querySelector('.check-icon');
+
+                // Intercambia los íconos (Muestra el check)
+                copyIcon.classList.add('hidden');
+                checkIcon.classList.remove('hidden');
+
+                // Después de 2 segundos, lo regresa a la normalidad
+                setTimeout(() => {
+                    copyIcon.classList.remove('hidden');
+                    checkIcon.classList.add('hidden');
+                }, 2000);
+            }).catch(err => {
+                console.error('Error al copiar: ', err);
+            });
+        }
+    </script>
 </Layout>
