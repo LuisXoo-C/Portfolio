@@ -1,35 +1,35 @@
 <dialog id="project-modal" class="bg-neutral-900 text-white rounded-3xl border border-neutral-700 shadow-2xl p-0 w-full max-w-4xl backdrop:bg-black/80 m-auto">
 
-  <div class="relative h-48 w-full overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 to-transparent z-10"></div>
-      <img id="modal-img" src="" alt="Project Header" class="w-full h-full object-cover opacity-50">
-      <button id="close-modal" class="absolute top-4 right-4 z-20 bg-black/50 p-2 rounded-full hover:bg-white/20 transition text-white">
-        ✕
-      </button>
-  </div>
+    <div class="relative h-48 w-full overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 to-transparent z-10"></div>
+        <img id="modal-img" src="" alt="Project Header" class="w-full h-full object-cover opacity-50">
+        <button id="close-modal" class="absolute top-4 right-4 z-20 bg-black/50 p-2 rounded-full hover:bg-white/20 transition text-white">
+            ✕
+        </button>
+    </div>
 
-  <div class="p-8 -mt-10 relative z-20">
-    <div class="flex flex-wrap gap-2 mb-4" id="modal-tags">
+    <div class="p-8 -mt-10 relative z-20">
+        <div class="flex flex-wrap gap-2 mb-4" id="modal-tags">
         </div>
 
-    <h2 id="modal-title" class="text-3xl md:text-4xl font-bold text-white mb-6"></h2>
+        <h2 id="modal-title" class="text-3xl md:text-4xl font-bold text-white mb-6"></h2>
 
-    <div id="modal-content" class="prose prose-invert max-w-none text-gray-300"></div>
-  </div>
+        <div id="modal-content" class="prose prose-invert max-w-none text-gray-300"></div>
+    </div>
 </dialog>
 
 <style>
-  dialog[open] {
-    animation: fade-in 0.3s ease-out;
-  }
-  dialog::backdrop {
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(4px);
-  }
-  @keyframes fade-in {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-  }
+    dialog[open] {
+        animation: fade-in 0.3s ease-out;
+    }
+    dialog::backdrop {
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(4px);
+    }
+    @keyframes fade-in {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+    }
 </style>
 
 <script client:load>
@@ -44,14 +44,26 @@
         document.getElementById('modal-img').src = project.image;
         document.getElementById('modal-content').innerHTML = project.detailsHTML;
 
-        // Limpiar y rellenar tags
+        // Limpiar y rellenar tags usando las variables del PaletteSelector
         const tagsContainer = document.getElementById('modal-tags');
         tagsContainer.innerHTML = '';
         project.tags.forEach(tag => {
             const span = document.createElement('span');
             span.className = 'px-3 py-1 bg-white/10 rounded-full text-xs font-mono text-emerald-300 border border-emerald-500/20';
+            span.className = 'px-3 py-1 rounded-full text-xs font-mono border';
+            span.style.backgroundColor = 'var(--cp-tag-bg)';
+            span.style.color = 'var(--cp-tag-text)';
+            span.style.borderColor = 'var(--cp-tag-border)';
             span.innerText = tag;
             tagsContainer.appendChild(span);
+        });
+
+        // Aplicamos variables a elementos internos del HTML del proyecto si es necesario
+        // (Por si tu detailsHTML usa clases fijas, aquí forzamos que use el acento)
+        const modalContent = document.getElementById('modal-content');
+        const h4Elements = modalContent.querySelectorAll('h4');
+        h4Elements.forEach(h4 => {
+            h4.style.color = 'var(--cp-primary-light)';
         });
 
         modal.showModal();
