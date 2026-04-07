@@ -51,14 +51,7 @@ export const projects = [
             <h4 class="text-emerald-400 font-bold text-lg mb-2">Metodología</h4>
             <p class="text-gray-300">Por cuestiones de confidencialidad no es posible brindar detalles tan específicos.</p>
         </div>
-        <div>
-            <h4 class="text-emerald-400 font-bold text-lg mb-2">Referencias</h4>
-            <p class="text-gray-300">Lic. Fernando Gómez. +504 9514-7998</p>
-        </div>
       </div>
-      
-      
-      
     `
   },
   // Proyecto de Sensores y Data Eng

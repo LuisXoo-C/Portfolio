@@ -9,14 +9,6 @@ export const experiences = [
     ],
     technologies: ['Angular', 'TypeScript', 'JS', 'CSS','HTML5', 'Clean Architecture', 'SDLC', ],
     references: [
-        {
-          name: 'MSc.',
-          phone: ''
-        },
-        {
-          name: 'MSc.',
-          phone: ''
-        },
     ],
 
   },
@@ -35,11 +27,6 @@ export const experiences = [
     ],
     technologies: ['C++', 'ESP32', 'Teltonika IoT', 'Git', 'Clean Architecture', 'SDLC', 'DBA - SQL'],
     references: [
-      {
-        name: 'Ing. Noel Martinez',
-        position: 'Jefe Inmediato',
-        phone: '+504 9514-7998'
-      }
     ],
 
   },
