@@ -51,14 +51,7 @@ export const projects = [
             <h4 class="text-emerald-400 font-bold text-lg mb-2">Metodología</h4>
             <p class="text-gray-300">Por cuestiones de confidencialidad no es posible brindar detalles tan específicos.</p>
         </div>
-        <div>
-            <h4 class="text-emerald-400 font-bold text-lg mb-2">Referencias</h4>
-            <p class="text-gray-300">Lic. Fernando Gómez. +504 9514-7998</p>
-        </div>
       </div>
-      
-      
-      
     `
   },
   // Proyecto de Sensores y Data Eng
@@ -67,6 +60,7 @@ export const projects = [
     title: 'Sistema IoT & Data Engineering',
     shortDescription: 'Arquitectura de datos end-to-end. Desde que el sensor parpadea hasta el dashboard de Metabase, evitando Data Swamps en el camino.',
     tags: ['Python', 'FastAPI', 'RedPanda', 'MinIO', 'PostgreSQL', 'Metabase', 'Docker', 'IoT'],
+    githubUrl: 'https://github.com/LuisXoo-C/Project-Data-Engineering.git',
     image: '/resources/Proyecto-sensores.png',
     isPrivate: false,
     stats: {
