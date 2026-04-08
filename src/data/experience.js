@@ -1,11 +1,12 @@
 export const experiences = [
   {
     period: 'Enero 2026 - Actualidad',
-    position: 'Desarrollador de sistemas - Pasante Interno - DGET.',
-    company: 'Universidad Nacional Autónoma de Honduras - UNAH',
-    description: 'Asumí la responsabilidad en la modernización del sistema de registro y de gestión de matricula.',
+    position: 'Pasante de Desarrollo de Sistemas',
+    company: 'Universidad Nacional Autónoma de Honduras (UNAH) - DIPP',
+    description: 'Asumí la responsabilidad en la modernización del Sistema de Gestión Acádemica de la Universidad Nacional Autónoma de Honduras. Para de más de 70,000 usuarios.',
     achievements: [
-      'Aplicando estándares de ingeniería de software para modernizar el sistema.',
+      'Implementación de Clean Architecture utilizando Angular y TypeScript para garantizar un código modular, escalable y de fácil mantenimiento.',
+      'Aplicación de metodologías del Ciclo de Vida del Desarrollo de Software (SDLC) y estándares de ingeniería para rediseñar y escalar el sistema.'
     ],
     technologies: ['Angular', 'TypeScript', 'JS', 'CSS','HTML5', 'Clean Architecture', 'SDLC', ],
     references: [
