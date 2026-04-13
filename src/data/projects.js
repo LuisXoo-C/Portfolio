@@ -139,6 +139,44 @@ export const projects = [
         </div>
       </div>
     `
+  },
+  {
+    id: 'Port-Reader-V2',
+    title: 'Sistema para administrar puertos de red V2',
+    shortDescription: 'Modernizacion del Sistema que monitorea el tráfico de puertos especificos de la red, con ello logrando conexión y comunicación con cada dispositivo conectado a dicho puerto.',
+    tags: ['Python', 'Angular', 'UDP/TCP'],
+    image: '/resources/Port-v2.png',
+    isPrivate: false,
+    stats: {
+      value: 'Real-time',
+      label: 'Latencia < 20ms',
+      subtext: 'Comunicación de datos en tiempo real.'
+    },
+    detailsHTML: `
+      <div class="space-y-6">
+        <div>
+            <h4 class="text-emerald-400 font-bold text-lg mb-2">¿Cómo surgió?</h4>
+            <p class="text-gray-300">Una tarde me dio por realizarle una pantalla más moderna a este proyecto, que en su tiempo me fue bastante útl.</p>
+        </div>
+        <div>
+            <h4 class="text-emerald-400 font-bold text-lg mb-2">Logros</h4>
+            <p class="text-gray-300">• Ahora se puede cambiar entre TCP Y UDP a puertos especificos</p>
+            <p class="text-gray-300">• Cuenta con tablas modernas con filtros</p>
+            <p class="text-gray-300">• Logra hacer conexión a muchos.</p>
+            <p class="text-gray-300">• Se puede realizar respuesta a dispositivos especificos.</p>
+        </div>
+        
+        <div class="w-full bg-[#050505] rounded-xl border border-neutral-800 overflow-hidden hover:border-[var(--cp-border-hover)] hover:shadow-lg hover:shadow-[var(--cp-glow)] transition-all duration-300 group p-2 md:p-4">
+              <img 
+                  src="/resources/Port-v2-dashboard.png" 
+                  alt="Dashboard del sistema." 
+                  class="w-full h-auto object-contain opacity-80 group-hover:opacity-100 group-hover:scale-[1.01] transition-all duration-500"
+              >
+          </div>
+          <p class="text-xs text-neutral-500 text-center mt-3 italic">Dashboard moderno del sistema.</p>
+        </div>
+      </div>
+    `
   }
 
   ];
