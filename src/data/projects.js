@@ -147,6 +147,7 @@ export const projects = [
     tags: ['Python', 'Angular', 'UDP/TCP'],
     image: '/resources/Port-v2.png',
     isPrivate: false,
+    githubUrl: 'https://github.com/LuisXoo-C/Ports-Project-V2.git',
     stats: {
       value: 'Real-time',
       label: 'Latencia < 20ms',
