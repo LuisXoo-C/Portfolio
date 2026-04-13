@@ -445,19 +445,19 @@ import { Icon } from 'astro-icon/components';
                             </div>
 
                             <a href="http://www.linkedin.com/in/luis-ángel-cardona-4922412b6" target="_blank"
-                               class="cp-contact-item group flex items-center gap-4 p-4 rounded-xl bg-neutral-800/30 border border-neutral-700 transition-all">
-                                <div class="cp-icon-wrap w-12 h-12 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                               class="cp-contact-item group flex items-center gap-4 p-4 rounded-xl bg-neutral-800/30 border border-neutral-700 transition-all hover:border-[var(--cp-border-hover)] hover:shadow-lg hover:shadow-[var(--cp-glow)]">
+                                <div class="cp-icon-wrap w-12 h-12 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform group-hover:text-[var(--cp-primary-light)]">
                                     <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                                 </div>
                                 <div>
                                     <p class="text-neutral-400 text-xs uppercase tracking-wider">LinkedIn</p>
-                                    <p class="text-white font-medium">Conecta conmigo</p>
+                                    <p class="text-white font-medium group-hover:text-[var(--cp-primary-light)] transition-colors">Conecta conmigo</p>
                                 </div>
                             </a>
 
                             <div class="flex items-center gap-4 p-4 rounded-xl bg-neutral-800/30 border border-neutral-700">
                                 <div class="cp-icon-wrap w-12 h-12 rounded-lg flex items-center justify-center">
-                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="2"/></svg>
+                                    <svg class="w-5 h-5 text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="2"/></svg>
                                 </div>
                                 <div>
                                     <p class="text-neutral-400 text-xs uppercase tracking-wider">Ubicación</p>
@@ -466,17 +466,35 @@ import { Icon } from 'astro-icon/components';
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Availability badge -->
+                <div class="space-y-6">
                     <div class="cp-available-badge rounded-2xl p-6 border">
                         <div class="flex items-center gap-3">
-                            <span class="relative flex h-3 w-3">
+                            <span class="relative flex h-3 w-3 shrink-0">
                                 <span class="cp-avail-dot-outer animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"></span>
                                 <span class="cp-avail-dot-inner relative inline-flex rounded-full h-3 w-3"></span>
                             </span>
                             <div>
                                 <p class="text-white font-medium">Disponible para nuevos retos</p>
                                 <p class="text-neutral-400 text-sm">Open to work & collaborations</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cp-card group bg-gradient-to-br from-neutral-900/50 to-neutral-900/30 border border-neutral-800 rounded-2xl p-6 hover:border-[var(--cp-border-hover)] hover:shadow-lg hover:shadow-[var(--cp-glow)] transition-all duration-300">
+                        <div class="flex items-start gap-4">
+                            <div class="cp-icon-wrap w-12 h-12 rounded-lg flex items-center justify-center shrink-0 group-hover:text-[var(--cp-primary-light)] transition-colors group-hover:scale-110 duration-300">
+                                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-neutral-400 text-xs uppercase tracking-wider mb-2">Política de Referencias</p>
+                                <p class="text-neutral-300 text-sm leading-relaxed">
+                                    Las referencias laborales se entregan <span class="text-[var(--cp-primary-light)] font-medium transition-colors">únicamente por correo electrónico</span> bajo solicitud.
+                                </p>
+                                <p class="text-neutral-500 text-xs mt-3 leading-relaxed">
+                                    Esto protege la privacidad de mis recomendadores y evita spam, bots o uso indebido de sus datos.
+                                </p>
                             </div>
                         </div>
                     </div>
