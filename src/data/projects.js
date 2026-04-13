@@ -89,6 +89,19 @@ export const projects = [
             <li><strong class="text-white">Metabase:</strong> Porque necesitamos monitorear el desgaste de baterías y predecir mantenimientos en dashboards bonitos, y porque es open-source.</li>
         </ul>
       </div>
+      
+      <div class="pt-2">
+      <h4 class="text-[var(--cp-primary-light)] font-bold text-lg mb-4">Arquitectura del Sistema</h4>
+      
+      <div class="w-full bg-[#050505] rounded-xl border border-neutral-800 overflow-hidden hover:border-[var(--cp-border-hover)] hover:shadow-lg hover:shadow-[var(--cp-glow)] transition-all duration-300 group p-2 md:p-4">
+          <img 
+              src="https://github.com/LuisXoo-C/Project-Data-Engineering/blob/main/Docs/Diagrama%20Arquitectura.png?raw=true" 
+              alt="Diagrama de Arquitectura IoT y Data Engineering" 
+              class="w-full h-auto object-contain opacity-80 group-hover:opacity-100 group-hover:scale-[1.01] transition-all duration-500"
+          >
+      </div>
+      <p class="text-xs text-neutral-500 text-center mt-3 italic">Flujo de datos desacoplado: Desde la generación (IoT) hasta la visualización (Metabase).</p>
+    </div>
 
       <div>
         <h4 class="text-emerald-400 font-bold text-lg mb-2">The Reality Check (Post-Mortem)</h4>
