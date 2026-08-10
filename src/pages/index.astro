@@ -7,6 +7,7 @@ import { certificates} from "../data/certifications";
 import AllCertsModal from '../components/AllCertsModal.astro';
 import ClickMe from '../components/ClickMe.svelte';
 import ColorPaletteSwitcher from '../components/ColorPaletteSwitcher.svelte';
+import Footer from '../components/Footer.svelte';
 import { Icon } from 'astro-icon/components';
 ---
 
@@ -47,7 +48,7 @@ import { Icon } from 'astro-icon/components';
                         <div class="cp-accent-bar absolute -left-4 top-1 h-12 w-1 rounded-full hidden md:block"></div>
 
                         <p class="text-xl md:text-2xl text-neutral-400 font-light leading-relaxed mb-6 animate-slide-in-bottom" style="animation-delay: 0.1s">
-                            Desarrollador de Software <span class="text-white font-medium">FullStack</span>.
+                            Desarrollador de  <span class="text-white font-medium">Software</span>.
                             <br class="hidden md:block" />
                             Actualmente construyendo proyectos orientados al datacycle, en transición a
                             <span class="cp-text font-medium">Ingeniería de Datos</span>.
@@ -147,13 +148,13 @@ import { Icon } from 'astro-icon/components';
                     </div>
 
                     <p class="text-neutral-300 leading-relaxed mb-4">
-                        Soy un desarrollador <span class="cp-text font-medium">FullStack</span> con residencia en Tegucigalpa, Honduras. Me gusta hacer proyectos cools cuando estoy aburrido.
+                        Soy un desarrollador de <span class="cp-text font-medium">Software</span> con residencia en Tegucigalpa, Honduras. Me gusta hacer proyectos cools cuando estoy aburrido.
                     </p>
                     <p class="text-neutral-300 leading-relaxed mb-4">
-                        Actualmente estoy en transición hacia <span class="cp-text font-medium">Ingeniería de Datos</span>, combinando mi experiencia en desarrollo con nuevas habilidades en procesamiento, almacenamiento y análisis de datos a escala.
+                        Actualmente estoy en transición hacia <span class="cp-text font-medium">Ingeniería de Datos</span>.
                     </p>
                     <p class="text-neutral-300 leading-relaxed mb-4">
-                        Fuera de la informática, me gusta leer, organizar, el gym y la fotografía.
+                        Fuera de lo laboral casi siempre me veo envuelto aprendiendo y estudiando cosas interesantes.
                     </p>
                 </div>
 
@@ -219,14 +220,14 @@ import { Icon } from 'astro-icon/components';
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
                 {[
                     { name: 'Python',        color: 'from-cyan-500/20 to-blue-500/20',     iconName: 'simple-icons:python',              url: 'https://www.python.org/' },
+                    { name: 'Power BI',      color: 'from-green-500/20 to-emerald-500/20', iconName: 'simple-icons:powerbi',             url: 'https://www.microsoft.com/en-us/power-platform/products/power-bi' },
                     { name: 'ETL',           color: 'from-green-500/20 to-lime-500/20',    iconName: 'carbon:flow-stream',             url: 'https://share.google/HS5qk9pHySJgmBqdY' },
                     { name: 'Angular',       color: 'from-cyan-500/20 to-cyan-400/20',     iconName: 'simple-icons:angular',             url: 'https://angular.io/' },
                     { name: 'PHP-Laravel',   color: 'from-violet-500/20 to-purple-500/20', iconName: 'simple-icons:laravel',             url: 'https://laravel.com/' },
                     { name: 'TypeScript/JS', color: 'from-sky-500/20 to-blue-400/20',      iconName: 'simple-icons:typescript',          url: 'https://www.typescriptlang.org/' },
-                    { name: 'Power BI',      color: 'from-green-500/20 to-emerald-500/20', iconName: 'simple-icons:powerbi',             url: 'https://www.microsoft.com/en-us/power-platform/products/power-bi' },
                     { name: 'Node.js',       color: 'from-blue-500/20 to-indigo-500/20',   iconName: 'simple-icons:nodedotjs',           url: 'https://nodejs.org/' },
                     { name: 'PostgreSQL',    color: 'from-amber-500/20 to-orange-500/20',  iconName: 'simple-icons:postgresql',          url: 'https://www.postgresql.org/' },
-                    { name: 'MySQL',         color: 'from-red-500/20 to-pink-500/20',      iconName: 'simple-icons:mysql',               url: 'https://www.mysql.com/' },
+                    { name: 'SQL Server',         color: 'from-red-500/20 to-pink-500/20',      iconName: 'simple-icons:microsoftsqlserver',               url: 'https://learn.microsoft.com/en-us/sql/sql-server/?view=sql-server-ver17' },
                     { name: 'Git',           color: 'from-orange-500/20 to-red-500/20',    iconName: 'simple-icons:git',                 url: 'https://git-scm.com/' },
                     { name: 'Docker',        color: 'from-blue-500/20 to-indigo-500/20',   iconName: 'simple-icons:docker',              url: 'https://www.docker.com/' },
                     { name: 'AWS',           color: 'from-pink-500/20 to-rose-500/20',     iconName: 'simple-icons:amazonwebservices',   url: 'https://aws.amazon.com/' },
@@ -488,7 +489,7 @@ import { Icon } from 'astro-icon/components';
                             </span>
                             <div>
                                 <p class="text-white font-medium">Disponible para nuevos retos</p>
-                                <p class="text-neutral-400 text-sm">Open to work & collaborations</p>
+                                <p class="text-neutral-400 text-sm">Colaboremos!</p>
                             </div>
                         </div>
                     </div>
@@ -514,21 +515,9 @@ import { Icon } from 'astro-icon/components';
         </section>
 
         <!-- ═══════════════════════════════════════
-             FOOTER
+             FOOTER (Componente Svelte)
              ═══════════════════════════════════════ -->
-        <footer class="border-t border-neutral-800 pt-12 pb-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="text-center md:text-left">
-                    <p class="text-neutral-400 text-sm">© 2026 Luis Ángel Cardona. Todos los derechos reservados.</p>
-                    <p class="text-neutral-500 text-xs mt-1">Honduras, Tegucigalpa</p>
-                </div>
-                <div class="flex items-center gap-2 text-neutral-500 text-xs">
-                    <span>Construido con</span>
-                    <svg class="cp-heart w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                    <span>con Astro & Tailwind</span>
-                </div>
-            </div>
-        </footer>
+        <Footer client:visible />
     </main>
 
     <ProjectModal />
@@ -537,7 +526,7 @@ import { Icon } from 'astro-icon/components';
     <!-- Botones flotantes -->
     <div class="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-3">
         <ColorPaletteSwitcher client:load />
-        <ClickMe client:load />
+        <!-- <ClickMe client:load />-->
     </div>
 
     <script>
