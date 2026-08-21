@@ -111,6 +111,43 @@ export const projects = [
     </div>
   `
   },
+    // PROYECTO PARA DETECT FRAUD
+  {
+    id: 'Fraud-Detection',
+    title: 'Pipeline de Detección de Fraude en Tiempo Real - FinTech',
+    shortDescription: 'Arquitectura de datos de grado industrial que simula un ecosistema bancario para la detección de anomalías y patrones de fraude transaccional en sub-segundos.',
+    tags: ['Python', 'Apache Kafka', 'Apache Spark', 'MinIO', 'ClickHouse', 'Docker', 'Stream Processing'],
+    image: '/resources/Fraud-Detection.png',
+    isPrivate: false,
+    githubUrl: 'https://github.com/LuisXoo-C/',
+    stats: {
+      value: 'Sub-second',
+      label: 'FinTech Architecture',
+      subtext: 'Procesamiento con estado y ventanas deslizantes'
+    },
+    detailsHTML: `
+      <div class="space-y-6">
+        <div>
+            <h4 class="text-emerald-400 font-bold text-lg mb-2">¿Cómo surgió?</h4>
+            <p class="text-gray-300">Usando mi banca en línea me puse a pensar en la ingeniería detrás de la seguridad: ¿cómo detectan los bancos el fraude al instante y logran identificar patrones maliciosos? Para despejar la duda, me propuse construir un simulador y un pipeline de datos completo que replica este ecosistema, implementando las mismas herramientas y estrategias que se usan en producción a gran escala</p>
+        </div>
+        <div>
+            <h4 class="text-emerald-400 font-bold text-lg mb-2">Logros</h4>
+            <p class="text-gray-300">• Aún no lo termino, pero ya tengo la arquitectura que utilizaré, que fue lo más dificil de definir debido a que hay muchos equivalentes</p>
+        </div>
+        
+        <div class="w-full bg-[#050505] rounded-xl border border-neutral-800 overflow-hidden hover:border-[var(--cp-border-hover)] hover:shadow-lg hover:shadow-[var(--cp-glow)] transition-all duration-300 group p-2 md:p-4">
+              <img 
+                  src="/resources/Fraud-Detection.png" 
+                  alt="Diagrama del sistema." 
+                  class="w-full h-auto object-contain opacity-80 group-hover:opacity-100 group-hover:scale-[1.01] transition-all duration-500"
+              >
+          </div>
+          <p class="text-xs text-neutral-500 text-center mt-3 italic"></p>
+        </div>
+      </div>
+    `
+  },
     // Sistema de los puertos de red.
   {
     id: 'Port-Reader',
