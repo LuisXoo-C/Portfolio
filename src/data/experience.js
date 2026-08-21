@@ -3,14 +3,15 @@ export const experiences = [
     period: 'Mayo 2026 - Presente',
     position: 'Ingeniero de datos - Práctica Profesional',
     company: 'Grupo Vesta - Vesta Customs S.A.',
-    description: 'Estoy realizando tareas de ingeniería de datos e ingeniería de software, automatizaciones de procesos, incluyendo ETL, análisis de datos, visualización con Power BI y desarrollo de sistemas para consumo interno.',
+    description: 'Estoy realizando proyectos de ingeniería de datos e ingeniería de software, automatizaciones de procesos, incluyendo ETL, análisis de datos, visualización con Power BI y desarrollo de sistemas para consumo interno.',
     achievements: [
-      'API Validador de CAI: Hecha con automatización web scraping sustituyendo procesos manuales por consumo directo de APIs, con generación de plantilla de comprobación en PDF y JSON o solo JSON, reduciendo los tiempos operativos en la validación de CAI. Siendo necesaria para más de 3 departamentos.',
+      'API Validador de CAI: Hecha con automatización web scraping sustituyendo procesos operativos manuales por consumo directo de APIs, con generación de plantilla de comprobación en PDF y JSON o solo JSON, reduciendo los tiempos operativos en la validación de CAI. Siendo ahora necesaria para más de 3 departamentos.',
       'Estandarización de nomenclaturas para mejorar la consistencia y calidad los BI. Facilitando la captura de errores de actualización o reportes desactualizados desde API service de Power BI.',
-      'API Jetstereo: Sabana de datos estructurados para el control de tiempos aduaneros y administración de contenedores.',
-      'API Agrolibano: ',
+      'API Jetstereo: Sabana de datos estructurados para el seguimiento logístico de importaciones en tránsito, gestión de tiempos y administración de contenedores desde su origen hasta su destino final.',
+      'API Agrolibano: Sabana de datos para la trazabilidad operativa de las declaraciones de exportaciones agrícolas',
       'Reportes en Power BI para la facilitar la captura de visitas a clientes y licitaciones próximas a vencer.',
-      'Sistema de consumo interno para cumplir con los tiempos de entrega de Record Keeping de Cargill. Hecho bajo los estándares de SDLC.'
+      'Sistema Full-stack de consumo interno para llevar seguimiento de las exportaciones e importaciones desde el origen hasta el destino y automatiza la entrega del Record Keeping de Cargill. Hecho bajo los estándares SDLC.',
+      'Migración de Dashboard P2P a Stack robusto con Python, DuckDB, Airflow y Astro para la visualización web, mejorando la eficiencia de procesamiento de datos y calidad del reporte.'
     ],
     technologies: ['Python', 'ETL', 'Power BI', 'Web Scraping', 'Angular 21', 'C#', 'SQL SERVER', "API's", 'SDLC', 'Git'],
     references: [
