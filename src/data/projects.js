@@ -65,14 +65,14 @@ export const projects = [
     isPrivate: false,
     stats: {
       value: 'Lakehouse',
-      label: 'Arquitectura Híbrida',
+      label: 'Arquitectura Híbrida & Medallion',
       subtext: 'Cold (S3) & Hot (SQL) Storage'
     },
     detailsHTML: `
     <div class="space-y-6 text-gray-300 leading-relaxed text-sm md:text-base">
       
       <div>
-        <p>Llegué a la conclusión de que limpiar un archivo CSV estático es como llegar al cine cuando la película ya terminó y solo ves los créditos: te pierdes toda la acción. Inspirado por <em>"Fundamentals of Data Engineering"</em>, construí este proyecto para dejar de ser un espectador y convertirme en el director de la orquesta de datos.</p>
+        <p>Llegué a la conclusión de que limpiar un archivo CSV estático es como llegar al cine cuando la película ya terminó y solo ves los créditos: te pierdes toda la acción. Inspirado por <em>"Fundamentals of Data Engineering"</em>, utilizando arquitectura Medallion como base, construí este proyecto para dejar de ser un espectador y convertirme en el director de la orquesta de datos.</p>
       </div>
 
       <div>
