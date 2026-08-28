@@ -133,7 +133,7 @@ export const projects = [
         </div>
         <div>
             <h4 class="text-emerald-400 font-bold text-lg mb-2">Logros</h4>
-            <p class="text-gray-300">• Aún no lo termino, pero ya tengo la arquitectura que utilizaré, que fue lo más dificil de definir debido a que hay muchos equivalentes</p>
+            <p class="text-gray-300">• El sistema está en proceso, ya definí la arquitectura que es una de las partes más dificiles...</p>
         </div>
         
         <div class="w-full bg-[#050505] rounded-xl border border-neutral-800 overflow-hidden hover:border-[var(--cp-border-hover)] hover:shadow-lg hover:shadow-[var(--cp-glow)] transition-all duration-300 group p-2 md:p-4">
