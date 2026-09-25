@@ -117,33 +117,88 @@ export const projects = [
     title: 'Pipeline de Detección de Fraude en Tiempo Real - FinTech',
     shortDescription: 'Arquitectura de datos de grado industrial que simula un ecosistema bancario para la detección de anomalías y patrones de fraude transaccional en sub-segundos.',
     tags: ['Python', 'Apache Kafka', 'Apache Spark', 'MinIO', 'ClickHouse', 'Docker', 'Stream Processing'],
-    image: '/resources/Fraud-Detection.png',
+    image: '/resources/Fraud-Detection/pantalla-1.png',
     isPrivate: false,
-    githubUrl: 'https://github.com/LuisXoo-C/',
+    githubUrl: 'https://github.com/LuisXoo-C/Fraud-Detection.git',
     stats: {
-      value: 'Sub-second',
-      label: 'FinTech Architecture',
-      subtext: 'Procesamiento con estado y ventanas deslizantes'
+      value: '< 15ms',
+      label: 'OLAP & Sub-sec Streaming',
+      subtext: 'Kafka KRaft + PySpark + ClickHouse'
     },
     detailsHTML: `
-      <div class="space-y-6">
+      <div class="space-y-6 text-gray-300 leading-relaxed text-sm md:text-base">
         <div>
-            <h4 class="text-emerald-400 font-bold text-lg mb-2">¿Cómo surgió?</h4>
-            <p class="text-gray-300">Usando mi banca en línea me puse a pensar en la ingeniería detrás de la seguridad: ¿cómo detectan los bancos el fraude al instante y logran identificar patrones maliciosos? Para despejar la duda, me propuse construir un simulador y un pipeline de datos completo que replica este ecosistema, implementando las mismas herramientas y estrategias que se usan en producción a gran escala</p>
+          <p>Usando mi banca en línea me pregunté: <em>¿cómo detectan los bancos un fraude al vuelo antes de que el dinero salga, sin frenar al usuario legítimo?</em> Construir un pipeline básico no bastaba; quise diseñar una <strong>arquitectura FinTech de grado industrial</strong> con patrones Medallion (Bronze/Silver/Gold), procesamiento con estado en tiempo real y analítica OLAP de alto rendimiento.</p>
         </div>
+
         <div>
-            <h4 class="text-emerald-400 font-bold text-lg mb-2">Logros</h4>
-            <p class="text-gray-300">• El sistema está en proceso, ya definí la arquitectura que es una de las partes más dificiles...</p>
+          <h4 class="text-emerald-400 font-bold text-lg mb-2">Decisiones de Arquitectura (¿Por qué cada pieza?)</h4>
+          <ul class="space-y-3 mt-2">
+            <li>
+              <strong class="text-white">Kafka en KRaft (Particionado por account_id):</strong>
+              Kafka solo asegura orden dentro de una misma partición. Si un retiro se procesa antes que su autorización por paralelismo desordenado, hay una falla crítica. Hashear por cuenta garantiza orden estricto de eventos y elimina la sobrecarga operativa de ZooKeeper.
+            </li>
+            <li>
+              <strong class="text-white">PySpark Structured Streaming & Ventanas Deslizantes:</strong>
+              Las transacciones no se evalúan aisladas. Usé ventanas deslizantes en memoria para detectar ataques de velocidad y la fórmula de <em>Haversine</em> (geo-velocidad imposible: > 800 km/h en traslados). Las ventanas fijas (tumbling) dejan puntos ciegos en los bordes; las deslizantes analizan el horizonte continuo.
+            </li>
+            <li>
+              <strong class="text-white">MinIO (S3 Landing Zone - Bronze):</strong>
+              El lago crudo inmutable. Si una regla de detección falla o cambia la regulación, tener los eventos brutos permite reconstruir y reentrenar modelos sin pérdida del histórico transaccional.
+            </li>
+            <li>
+              <strong class="text-white">ClickHouse (Gold Layer OLAP):</strong>
+              Un RDBMS tradicional colapsa al recibir ráfagas concurrentes de escritura mientras corre consultas analíticas pesadas. El motor columnar <code>MergeTree</code> de ClickHouse ofrece ingesta masiva y agregaciones en menos de 15 ms para alimentar tableros sin precalcular vistas rígidas.
+            </li>
+            <li>
+              <strong class="text-white">Simulación Estadística Realista (No ruido blanco):</strong>
+              Para validar el sistema no usé datos aleatorios planos. Modelé patrones circadianos (horas pico y valles de madrugada), estacionalidad de quincenas y compras cotidianas con distribución Log-Normal, inyectando anomalías de cola pesada en retiros fraudulentos.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-emerald-400 font-bold text-lg mb-2">Aprendizajes Clave & Business Impact</h4>
+          <ul class="space-y-2">
+            <li>• <strong class="text-white">Exposición interceptada vs. Pérdida real:</strong> En streaming sub-segundo, el valor detectado representa <em>capital salvaguardado antes de liquidación</em>, protegiendo tanto la liquidez como el SLA del banco.</li>
+            <li>• <strong class="text-white">Kimball Star Schema + VertiPaq:</strong> Modelar dimensiones conformadas (como <code>Dim_Calendar</code>) permite cross-filtering dinámico en 360° (ciudad, categoría de comercio, vector de ataque) sin quedar atrapado en silos aislados.</li>
+            <li>• <strong class="text-white">Stateful CEP a escala:</strong> Manejo de watermarks y checkpoints para controlar el crecimiento de memoria distribuida sin perder transacciones fuera de tiempo.</li>
+          </ul>
         </div>
         
-        <div class="w-full bg-[#050505] rounded-xl border border-neutral-800 overflow-hidden hover:border-[var(--cp-border-hover)] hover:shadow-lg hover:shadow-[var(--cp-glow)] transition-all duration-300 group p-2 md:p-4">
+        <div class="pt-2">
+          <h4 class="text-[var(--cp-primary-light)] font-bold text-lg mb-4">Dashboard en Power BI</h4>
+          <div class="space-y-4">
+            <div class="w-full bg-[#050505] rounded-xl border border-neutral-800 overflow-hidden hover:border-[var(--cp-border-hover)] hover:shadow-lg hover:shadow-[var(--cp-glow)] transition-all duration-300 group p-2 md:p-4">
               <img 
-                  src="/resources/Fraud-Detection.png" 
-                  alt="Diagrama del sistema." 
-                  class="w-full h-auto object-contain opacity-80 group-hover:opacity-100 group-hover:scale-[1.01] transition-all duration-500"
+                src="/resources/Fraud-Detection/pantalla-1.png" 
+                alt="Página 1: Resumen Ejecutivo y Riesgo Estratégico" 
+                class="w-full h-auto object-contain opacity-90 group-hover:opacity-100 group-hover:scale-[1.01] transition-all duration-500"
               >
+            </div>
+            <p class="text-xs text-neutral-500 text-center italic">Página 1: Resumen Ejecutivo — KPIs clave con variación MoM.</p>
+
+            <div class="w-full bg-[#050505] rounded-xl border border-neutral-800 overflow-hidden hover:border-[var(--cp-border-hover)] hover:shadow-lg hover:shadow-[var(--cp-glow)] transition-all duration-300 group p-2 md:p-4 mt-6">
+              <img 
+                src="/resources/Fraud-Detection/pantalla-2.png" 
+                alt="Página 2: Operaciones de Fraude e Investigación de Alertas" 
+                class="w-full h-auto object-contain opacity-90 group-hover:opacity-100 group-hover:scale-[1.01] transition-all duration-500"
+              >
+            </div>
+            <p class="text-xs text-neutral-500 text-center italic">Página 2: Triage y Operaciones de Fraude — Cola de incidentes críticos en tiempo real con auditoría de transacciones y score de riesgo.</p>
           </div>
-          <p class="text-xs text-neutral-500 text-center mt-3 italic"></p>
+        </div>
+
+        <div class="pt-2">
+          <h4 class="text-[var(--cp-primary-light)] font-bold text-lg mb-4">Arquitectura del Ecosistema</h4>
+          <div class="w-full bg-[#050505] rounded-xl border border-neutral-800 overflow-hidden hover:border-[var(--cp-border-hover)] hover:shadow-lg hover:shadow-[var(--cp-glow)] transition-all duration-300 group p-2 md:p-4">
+            <img 
+              src="/resources/Fraud-Detection.png" 
+              alt="Diagrama de Arquitectura - Detección de Fraude en Tiempo Real" 
+              class="w-full h-auto object-contain opacity-80 group-hover:opacity-100 group-hover:scale-[1.01] transition-all duration-500"
+            >
+          </div>
+          <p class="text-xs text-neutral-500 text-center mt-3 italic">Pipeline Medallion: Desde la simulación y Kafka (KRaft), pasando por Spark y MinIO, hasta ClickHouse y Power BI.</p>
         </div>
       </div>
     `
